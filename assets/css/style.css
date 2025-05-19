@@ -15,6 +15,15 @@
   --border-color: #e5e5e5;
 }
 
+@keyframes fadeDown {
+    from {
+        transform: translateY(-20px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
 html {
   font-size: 1rem;
 }
@@ -43,6 +52,7 @@ body {
   z-index: 1;
   border: 1px solid var(--border-color);
   overflow: hidden;
+  animation: fadeDown 1s ease forwards;
 }
 
 .header {
@@ -173,10 +183,9 @@ body {
     transition: all 0.3s ease;
 }
 
-.consulting__card:hover {
+.consulting__card--orange:hover {
     background-color: #e05a1c;
     transform: translateY(-2px);
-    border-color: var(--primary-orange);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     
 }
