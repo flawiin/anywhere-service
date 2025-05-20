@@ -461,8 +461,18 @@ body {
     font-size: 1.1rem;
   }
 
+  .header__icon {
+    width: 1.375rem;
+    height: 1.375rem;
+  }
+  
+  .header__icon-img {
+    width: .875rem;
+    height: .875rem;
+  }
+
   .header__subtitle::before {
-    left: 28px;
+    left: 1.75rem;
   }
 
   .container {
