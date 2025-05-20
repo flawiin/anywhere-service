@@ -420,6 +420,10 @@ body {
     font-size: 0.92rem;
     gap: 0.8rem;
   }
+
+  .consunting__title {
+    font-size: .875rem;
+  }
   .consulting__card--contact {
     margin-top: 1.7rem;
   }
@@ -448,6 +452,40 @@ body {
   .footer__title-highlight,
   .footer__copyright {
     font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 25.875rem) {
+  /* iPhone 11, XR, 12, 13, 14 padrão */
+  .header__title {
+    font-size: 1.1rem;
+  }
+
+  .header__subtitle::before {
+    left: 28px;
+  }
+
+  .container {
+    padding: 0 0 1.2rem 0;
+  }
+
+  .consulting__title {
+    font-size: .8125rem;
+  }
+
+  
+  .consulting__subtitle,
+  .consulting__subtitle--contact {
+    font-size: .625rem;
+  }
+
+  .footer__title {
+    font-size: 0.85rem;
+  }
+
+  .footer__title-highlight,
+  .footer__copyright {
+    font-size: 0.7rem;
   }
 }
 
@@ -509,7 +547,7 @@ body {
   }
 
   .consulting__title {
-    font-size: .9375rem;
+    font-size: .75rem;
   }
 
   .consulting__subtitle {
@@ -560,7 +598,7 @@ body {
   }
 
   .consulting__title {
-    font-size: 0.75rem;
+    font-size: .75rem;
   }
 
   .consulting__subtitle {
@@ -600,7 +638,7 @@ body {
   }
 
   .consulting__title {
-    font-size: 0.75rem;
+    font-size: .6875rem;
   }
 
   .consulting__subtitle {
