@@ -177,6 +177,7 @@ body {
 .consulting__card--contact {
   justify-content: space-between;
   background-color: rgba(102, 102, 102, 0.1);
+  margin-top: 30px;
 }
 
 .consulting__whatsapp-btn {
