@@ -110,6 +110,9 @@ body {
   border-radius: 0.75rem;
   margin-right: 1.5625rem;
   position: relative;
+  background-image: url("../img/logo.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .header__icon {
@@ -184,8 +187,8 @@ body {
 }
 
 .consulting__icon {
-   width: 1.5rem;
-   height: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .consulting__contact-wrapper {
@@ -205,7 +208,7 @@ body {
   border-radius: 0.3125rem;
   background-color: var(--primary-green);
   border: none;
-  font-size: .75rem;
+  font-size: 0.75rem;
   position: relative;
   transition: background-color 0.3s ease;
   cursor: pointer;
@@ -293,7 +296,7 @@ body {
 }
 
 .consulting__title {
-  font-size: .9375rem;
+  font-size: 0.9375rem;
   font-style: normal;
   font-weight: normal;
 }
@@ -305,20 +308,20 @@ body {
 }
 
 .consulting__subtitle {
-  font-size: .75rem;
+  font-size: 0.75rem;
   font-weight: normal;
   color: var(--mid-text);
 }
 
 .consulting__subtitle--contact {
-  font-size: .9375rem;
+  font-size: 0.9375rem;
   color: var(--dark-text);
   font-weight: normal;
 }
 
 .consulting__subtitle--orange {
   font-weight: normal;
-  font-size: .75rem;
+  font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -328,10 +331,25 @@ body {
   align-items: center;
   text-align: center;
   margin-top: 2.1875rem;
+  position: relative;
+  perspective: 800px;
+  z-index: 0;
+}
+
+.footer img {
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  left: 20px;
+  top: -20px;
+  transform: rotateX(20deg);
+  z-index: -1;
+  opacity: 0.3;
+  transform: translateY(10%);
 }
 
 .footer__title {
-  font-size: .9375rem;
+  font-size: 0.9375rem;
   color: var(--primary-orange);
   text-transform: uppercase;
 }
@@ -339,17 +357,102 @@ body {
 .footer__title-highlight {
   color: var(--dark-text);
   text-transform: capitalize;
-  font-size: .8125rem;
+  font-size: 0.8125rem;
   font-weight: bold;
 }
 
 .footer__copyright {
-  font-size: .8125rem;
+  font-size: 0.8125rem;
   color: var(--mid-text);
   font-weight: normal;
 }
 
-@media (max-width: 25rem) { /* 400px */
+@media (max-width: 30rem) {
+  .container {
+    max-width: 99vw;
+    border-radius: 0.65rem;
+    padding: 0 0 1.4rem 0;
+  }
+  .header {
+    flex-direction: column;
+    align-items: center;
+    padding: 1.3rem 1rem;
+    text-align: center;
+  }
+  .header__logo {
+    width: 5rem;
+    height: 5rem;
+    margin-right: 0;
+    margin-bottom: 0.7rem;
+  }
+  .header__icon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  .header__icon-img {
+    width: 1rem;
+    height: 1rem;
+  }
+  .header__title {
+    font-size: 1.2rem;
+    margin-bottom: 0.7rem;
+  }
+  .header__title-highlight {
+    font-size: 1.25rem;
+  }
+  .header__subtitle {
+    font-size: 0.8rem;
+    margin-left: 0.7rem;
+  }
+  .header__subtitle::before {
+    width: 0.85rem;
+    height: 0.85rem;
+    left: 3.625rem;
+    top: 0.7rem;
+  }
+  .services__list {
+    padding: 1.3rem 1rem 0;
+    gap: 0.5rem;
+  }
+  .consulting__card {
+    margin: 0.7rem 1rem;
+    padding: 0.9rem 1rem;
+    font-size: 0.92rem;
+    gap: 0.8rem;
+  }
+  .consulting__card--contact {
+    margin-top: 1.7rem;
+  }
+  .consulting__icon {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+  .consulting__whatsapp-btn {
+    padding: 0.48rem 1rem;
+    font-size: 0.72rem;
+  }
+  .consulting__whatsapp-btn::before {
+    left: 8px;
+    width: 16px;
+    height: 16px;
+  }
+  .footer {
+    margin-top: 1.5rem;
+  }
+  .footer img {
+    display: none;
+  }
+  .footer__title {
+    font-size: 0.9rem;
+  }
+  .footer__title-highlight,
+  .footer__copyright {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 25rem) {
+  /* 400px */
   .container {
     max-width: 100vw;
     border-radius: 0.5rem;
@@ -367,6 +470,14 @@ body {
     margin-right: 0;
     margin-bottom: 0.5rem;
   }
+  .header__icon {
+    width: 20px;
+    height: 20px;
+  }
+  .header__icon-img {
+    width: 12px;
+    height: 12px;
+  }
   .header__title {
     font-size: 1rem;
     margin-bottom: 0.5rem;
@@ -374,10 +485,12 @@ body {
   .header__title-highlight {
     font-size: 1.1rem;
   }
+
   .header__subtitle {
-    font-size: 0.65rem;
+    font-size: .75rem;
     margin-left: 0.5rem;
   }
+
   .header__subtitle::before {
     width: 0.75rem;
     height: 0.75rem;
@@ -388,36 +501,46 @@ body {
     padding: 1rem 0.5rem 0;
     gap: 0.25rem;
   }
-
   .consulting__card {
     margin: 0.5rem 0.5rem;
     padding: 0.75rem 0.5rem;
     font-size: 0.85rem;
-    gap: .9375rem;
+    gap: 0.9375rem;
   }
-  
+
+  .consulting__title {
+    font-size: .9375rem;
+  }
+
+  .consulting__subtitle {
+    font-size: .625rem
+  }
   .consulting__card--contact {
     margin-top: 1.25rem;
+  }
+
+  .consulting__subtitle--contact {
+    font-size: .8125rem;
   }
 
   .consulting__icon {
     width: 1.1rem;
     height: 1.1rem;
   }
-  
   .consulting__whatsapp-btn {
     padding: 0.4rem 0.7rem;
     font-size: 0.65rem;
   }
-
   .consulting__whatsapp-btn::before {
     left: 5px;
     width: 13px;
     height: 13px;
   }
-
   .footer {
     margin-top: 1rem;
+  }
+  .footer img {
+    display: none;
   }
   .footer__title {
     font-size: 0.8rem;
@@ -428,4 +551,71 @@ body {
   }
 }
 
+@media (max-width: 23.4375rem) {
+  .header__subtitle::before {
+    width: 0.75rem;
+    height: 0.75rem;
+    left: 2.8125rem;
+    top: 0.5rem;
+  }
 
+  .consulting__title {
+    font-size: 0.75rem;
+  }
+
+  .consulting__subtitle {
+    font-size: 0.625rem;
+  }
+
+  .consulting__subtitle--contact {
+    font-size: .75rem;
+  }
+}
+
+@media (max-width: 20rem) {
+  /* 320px */
+  .header__icon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .header__icon-img {
+    width: 10px;
+    height: 10px;
+  }
+
+  .header__subtitle {
+    font-size: .625rem;
+  }
+
+  .header__subtitle::before {
+    width: 0.75rem;
+    height: 0.75rem;
+    left: 1.25rem;
+    top: 0.5rem;
+  }
+
+  .header__description {
+    font-size: .625rem;
+  }
+
+  .consulting__title {
+    font-size: 0.75rem;
+  }
+
+  .consulting__subtitle {
+    font-size: 0.5rem;
+  }
+
+  .consulting__subtitle--contact {
+    font-size: 0.6875rem;
+  }
+
+  .footer__copyright {
+    font-size: 0.625rem;
+  }
+
+  .footer img {
+    display: none;
+  }
+}
