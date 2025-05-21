@@ -400,7 +400,7 @@ body {
     font-size: 1.1rem;
   }
   .header__subtitle {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     margin-left: 0.7rem;
   }
   .header__subtitle::before {
@@ -446,11 +446,11 @@ body {
     display: none;
   }
   .footer__title {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
   .footer__title-highlight,
   .footer__copyright {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -471,7 +471,7 @@ body {
   }
 
   .header__subtitle {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 
   .header__subtitle::before {
@@ -491,20 +491,20 @@ body {
   }
 
   .consulting__subtitle {
-    font-size: 0.6rem;
+    font-size: 0.75rem;
   }
 
   .consulting__subtitle--contact {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 
   .footer__title {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
   }
 
   .footer__title-highlight,
   .footer__copyright {
-    font-size: 0.65rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -544,7 +544,7 @@ body {
   }
 
   .header__subtitle {
-    font-size: 0.65rem;
+    font-size: 0.75rem;
     margin-left: 0.5rem;
   }
 
@@ -570,14 +570,14 @@ body {
   }
 
   .consulting__subtitle {
-    font-size: 0.55rem;
+    font-size: 0.7rem;
   }
   .consulting__card--contact {
     margin-top: 1.25rem;
   }
 
   .consulting__subtitle--contact {
-    font-size: 0.65rem;
+    font-size: 0.75rem;
   }
 
   .consulting__icon {
@@ -600,11 +600,11 @@ body {
     display: none;
   }
   .footer__title {
-    font-size: 0.65rem;
+    font-size: 0.8rem;
   }
   .footer__title-highlight,
   .footer__copyright {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
   }
 }
 
@@ -625,7 +625,7 @@ body {
   }
 
   .header__subtitle {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
   }
 
   .header__subtitle::before {
@@ -644,20 +644,20 @@ body {
   }
 
   .consulting__subtitle {
-    font-size: 0.5rem;
+    font-size: 0.65rem;
   }
 
   .consulting__subtitle--contact {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
   }
 
   .footer__title {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
   }
 
   .footer__title-highlight,
   .footer__copyright {
-    font-size: 0.55rem;
+    font-size: 0.65rem;
   }
 }
 
@@ -682,7 +682,7 @@ body {
   }
 
   .header__subtitle {
-    font-size: 0.5rem;
+    font-size: 0.65rem;
   }
 
   .header__subtitle::before {
@@ -705,20 +705,20 @@ body {
   }
 
   .consulting__subtitle {
-    font-size: 0.45rem;
+    font-size: 0.6rem;
   }
 
   .consulting__subtitle--contact {
-    font-size: 0.5rem;
+    font-size: 0.65rem;
   }
 
   .footer__title {
-    font-size: 0.5rem;
+    font-size: 0.65rem;
   }
 
   .footer__title-highlight,
   .footer__copyright {
-    font-size: 0.45rem;
+    font-size: 0.6rem;
   }
 
   .footer img {
