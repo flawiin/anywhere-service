@@ -171,6 +171,10 @@ body {
   font-weight: 500;
 }
 
+.consulting__list {
+  list-style: none;
+}
+
 .consulting__card {
   display: flex;
   align-items: center;
