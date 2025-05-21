@@ -189,6 +189,15 @@ body {
 .consulting__icon {
   width: 1.5rem;
   height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.consulting__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .consulting__contact-wrapper {
@@ -208,7 +217,7 @@ body {
   border-radius: 0.3125rem;
   background-color: var(--primary-green);
   border: none;
-  font-size: .8125rem;
+  font-size: 0.8125rem;
   position: relative;
   transition: background-color 0.3s ease;
   cursor: pointer;
@@ -296,32 +305,31 @@ body {
 }
 
 .consulting__title {
-  font-size: 0.9375rem;
-  font-style: normal;
+  font-size: .9375rem;
   font-weight: normal;
 }
 
 .consulting__title--contact {
-  font-size: .75rem;
+  font-size: 0.75rem;
   color: var(--mid-text);
   font-weight: normal;
 }
 
 .consulting__subtitle {
-  font-size: .75rem;
+  font-size: 0.75rem;
   font-weight: normal;
   color: var(--mid-text);
 }
 
 .consulting__subtitle--contact {
-  font-size: .875rem;
+  font-size: 0.875rem;
   color: var(--dark-text);
   font-weight: normal;
 }
 
 .consulting__subtitle--orange {
   font-weight: normal;
-  font-size: .75rem;
+  font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -388,40 +396,67 @@ body {
     width: 1.2rem;
     height: 1.2rem;
   }
+
   .header__icon-img {
     width: 1rem;
     height: 1rem;
   }
+
   .header__title {
     font-size: 1.1rem;
     margin-bottom: 0.7rem;
   }
+
   .header__title-highlight {
     font-size: 1.1rem;
   }
+
   .header__subtitle {
     font-size: 0.9rem;
     margin-left: 0.7rem;
   }
+
   .header__subtitle::before {
     width: 0.85rem;
     height: 0.85rem;
-    left: 2.625rem;
-    top: .625rem;
+    left: 1.75rem;
+    top: .75rem;
   }
+
+  .header__social {
+    gap: 0.8rem;
+    justify-content: center;
+  }
+
+  .header__social-icon {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
   .services__list {
     padding: 1.3rem 1rem 0;
     gap: 0.5rem;
   }
+
   .consulting__card {
     margin: 0.7rem 1rem;
     padding: 0.9rem 1rem;
     font-size: 0.85rem;
     gap: 0.8rem;
+    align-items: center;
   }
 
-  .consunting__title {
-    font-size: 0.75rem;
+  .consulting__icon {
+    width: 1.3rem;
+    height: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .consulting__title {
+    font-size: 0.95rem;
+    font-weight: normal;
   }
   .consulting__card--contact {
     margin-top: 1.7rem;
@@ -438,6 +473,7 @@ body {
     left: 8px;
     width: 16px;
     height: 16px;
+    transform: translateY(40%)
   }
   .footer {
     margin-top: 1.5rem;
@@ -475,23 +511,43 @@ body {
   }
 
   .header__subtitle::before {
-    left: 1.75rem;
+    left: .75rem;
+    top: .625rem;
   }
 
   .container {
     padding: 0 0 1.2rem 0;
   }
 
+  .header__social {
+    gap: 0.7rem;
+  }
+  .header__social-icon {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
   .consulting__card {
     font-size: 0.8rem;
   }
 
+  .consulting__icon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
   .consulting__title {
-    font-size: 0.7rem;
+    font-size: 0.85rem;
+    font-weight: normal;
+  }
+
+  .consulting__icon {
+    width: 1.2rem;
+    height: 1.2rem;
   }
 
   .consulting__subtitle {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
   }
 
   .consulting__subtitle--contact {
@@ -510,23 +566,6 @@ body {
 
 @media (max-width: 25rem) {
   /* 400px */
-  .container {
-    max-width: 100vw;
-    border-radius: 0.5rem;
-    padding: 0 0 1rem 0;
-  }
-  .header {
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem 0.5rem;
-    text-align: center;
-  }
-  .header__logo {
-    width: 4rem;
-    height: 4rem;
-    margin-right: 0;
-    margin-bottom: 0.5rem;
-  }
   .header__icon {
     width: 20px;
     height: 20px;
@@ -551,27 +590,41 @@ body {
   .header__subtitle::before {
     width: 0.75rem;
     height: 0.75rem;
-    left: 3.375rem;
-    top: 0.5rem;
+    left: .9375rem;
+    top: .625rem;
   }
+
+  .header__description {
+    font-size: 11px;
+  }
+
+  .header__social {
+    gap: 0.6rem;
+  }
+  .header__social-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
   .services__list {
     padding: 1rem 0.5rem 0;
     gap: 0.25rem;
   }
-  .consulting__card {
-    margin: 0.5rem 0.5rem;
-    padding: 0.75rem 0.5rem;
-    font-size: 0.75rem;
-    gap: 0.9375rem;
-  }
 
   .consulting__title {
-    font-size: 0.65rem;
+    font-size: 0.85rem;
+    font-weight: normal;
+  }
+
+  .consulting__icon {
+    width: 1.1rem;
+    height: 1.1rem;
   }
 
   .consulting__subtitle {
     font-size: 0.7rem;
   }
+
   .consulting__card--contact {
     margin-top: 1.25rem;
   }
@@ -608,10 +661,10 @@ body {
   }
 }
 
-@media  (max-width: 24.5625rem) {
+@media (max-width: 24.5625rem) {
   .header__subtitle::before {
-    left: 35px;
-    top: 10px;
+    left: .9375rem;
+    top: .625rem;
   }
 }
 
@@ -631,16 +684,34 @@ body {
   .header__subtitle::before {
     width: 0.75rem;
     height: 0.75rem;
-    left: 2.8125rem;
-    top: 0.5rem;
+    left: .9375rem;
+    top: .5rem
+  }
+
+  .header__description {
+    font-size: 0.625rem;
+  }
+
+  .header__social {
+    gap: 0.5rem;
+  }
+  .header__social-icon {
+    width: 1.1rem;
+    height: 1.1rem;
   }
 
   .consulting__card {
     font-size: 0.7rem;
   }
 
+  .consulting__icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
   .consulting__title {
-    font-size: 0.6rem;
+    font-size: 0.75rem;
+    font-weight: normal;
   }
 
   .consulting__subtitle {
@@ -649,6 +720,11 @@ body {
 
   .consulting__subtitle--contact {
     font-size: 0.7rem;
+  }
+
+  .consulting__icon {
+    width: 1rem;
+    height: 1rem;
   }
 
   .footer__title {
@@ -688,20 +764,34 @@ body {
   .header__subtitle::before {
     width: 0.75rem;
     height: 0.75rem;
-    left: 1.25rem;
+    left: -5px;
     top: 0.5rem;
   }
 
   .header__description {
-    font-size: 0.625rem;
+    font-size: 0.55rem;
+  }
+
+  .header__social {
+    gap: 0.4rem;
+  }
+  .header__social-icon {
+    width: 1rem;
+    height: 1rem;
   }
 
   .consulting__card {
     font-size: 0.6rem;
   }
 
+  .consulting__icon {
+    width: 0.9rem;
+    height: 0.9rem;
+  }
+
   .consulting__title {
-    font-size: 0.5rem;
+    font-size: 0.65rem;
+    font-weight: normal;
   }
 
   .consulting__subtitle {
@@ -709,7 +799,12 @@ body {
   }
 
   .consulting__subtitle--contact {
-    font-size: 0.65rem;
+    font-size: 0.575rem;
+  }
+
+  .consulting__icon {
+    width: 0.9rem;
+    height: 0.9rem;
   }
 
   .footer__title {
