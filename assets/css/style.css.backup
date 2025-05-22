@@ -324,23 +324,27 @@ body {
   transition: all 0.3s ease;
 }
 
-.consulting__card--orange:hover,
-.consulting__card--green:hover {
+.consulting__card--orange:hover {
+  background-color: #e05a1c;
   transform: translateY(-0.125rem);
   box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.08);
 }
 
-.consulting__card--orange:hover {
-  background-color: #e05a1c;
-}
-
 .consulting__card--green:hover {
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.08);
   border-color: rgba(76, 175, 80, 1);
   background-color: rgba(76, 175, 80, 0.1);
 }
 
 .consulting__card:hover::before {
   width: 0.375rem;
+}
+
+.consulting__card--orange:hover {
+  background-color: #e05a1c;
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.08);
 }
 
 .consulting__title {
@@ -428,20 +432,17 @@ body {
     border-radius: 0.65rem;
     padding: 0 0 1.4rem 0;
   }
-
   .header {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-
   .header__logo {
     width: 5rem;
     height: 5rem;
     margin-right: 0;
     margin-bottom: 0.7rem;
   }
-
   .header__icon {
     width: 1.4rem;
     height: 1.4rem;
@@ -468,7 +469,7 @@ body {
 
   .header__subtitle::before {
     top: 50%;
-    left: 1.5rem;
+    left: 1.5625rem;
     transform: translateY(-50%);
   }
 
@@ -486,7 +487,7 @@ body {
     padding: 1.3rem 0.4rem 0;
     gap: 0.25rem;
   }
-
+  
   .services__item {
     padding: 0.2rem 0.4rem;
     font-size: 0.7rem;
@@ -497,44 +498,44 @@ body {
     padding: 0.9rem 1rem;
     font-size: 0.85rem;
     gap: 0.8rem;
+    align-items: center;
   }
 
   .consulting__icon {
     width: 1.4rem;
     height: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .consulting__title {
     font-size: 0.95rem;
+    font-weight: normal;
   }
-
   .consulting__card--contact {
     margin-top: 1.7rem;
   }
-
   .consulting__whatsapp-btn {
     padding: 0.48rem 1rem;
     font-size: 0.72rem;
   }
-
   .consulting__whatsapp-btn::before {
+    width: 0.9375rem;
+    height: 0.9375rem;
     top: 50%;
-    left: 0.5rem;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
-
   .footer {
     margin-top: 1.5rem;
   }
-
   .footer img {
     display: none;
   }
-
   .footer__title {
     font-size: 1rem;
   }
-
   .footer__title-highlight,
   .footer__copyright {
     font-size: 0.9rem;
@@ -542,7 +543,570 @@ body {
 }
 
 @media (max-width: 27.5rem) {
-  .header__title,
+  /* 440px */
+  .header__title {
+    font-size: 1.075rem;
+  }
+
+  .header__title-highlight {
+    font-size: 1.075rem;
+  }
+
+  .header__icon {
+    width: 1.375rem;
+    height: 1.375rem;
+  }
+
+  .header__icon-img {
+    width: 1.075rem;
+    height: 1.075rem;
+  }
+
+  .header__subtitle {
+    font-size: 0.875rem;
+  }
+
+  /* =================================
+   Reset e Variáveis Globais
+================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-blue: #1e2635;
+  --primary-orange: #f26c29;
+  --primary-green: #4caf50;
+  --light-bg: #ffffff;
+  --dark-text: #333333;
+  --mid-text: #666666;
+  --light-text: #ffffff;
+  --border-color: #e5e5e5;
+}
+
+/* =================================
+   Animações
+================================= */
+
+@keyframes fadeDown {
+  from {
+    transform: translateY(-1.25rem);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* =================================
+   Estilos Base e Layout
+================================= */
+
+html {
+  font-size: 1rem;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--light-bg);
+  color: var(--dark-text);
+  min-height: 100vh;
+  display: flex;
+  padding: 2.5rem 0;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 32.5rem;
+  width: 90%;
+  background-color: white;
+  border-radius: 0.75rem;
+  padding: 0 0 1.875rem 0;
+  box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 1;
+  border: 0.0625rem solid var(--border-color);
+  overflow: hidden;
+  animation: fadeDown 1s ease forwards;
+}
+
+/* =================================
+   Header e Navegação
+================================= */
+
+.header {
+  background-color: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 1.5625rem 1.875rem;
+  color: white;
+}
+
+.header__title {
+  color: var(--light-text);
+  margin-bottom: 0.9375rem;
+  text-transform: uppercase;
+}
+
+.header__title-highlight {
+  color: var(--primary-orange);
+  font-size: 1.375rem;
+  text-transform: capitalize;
+}
+
+.header__subtitle {
+  color: var(--light-text);
+  font-size: 0.75rem;
+  position: relative;
+  margin: 0 0 0.5rem 1.125rem;
+}
+
+.header__subtitle::before {
+  content: "";
+  width: 0.9375rem;
+  height: 0.9375rem;
+  background-image: url("../icons/summer_travel_holidays_vacation_suitcase_luggage_icon_148873.svg");
+  position: absolute;
+  transform: translateY(2px) translateX(-21px);
+  display: inline-block;
+  filter: brightness(0) invert(1);
+}
+
+.header__description {
+  color: var(--light-text);
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.header__logo {
+  border: 0.1875rem solid #fff;
+  width: 5.625rem;
+  height: 5.625rem;
+  flex-shrink: 0;
+  border-radius: 0.75rem;
+  margin-right: 1.5625rem;
+  position: relative;
+  background-image: url("../img/logo.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header__icon {
+  position: absolute;
+  bottom: -0.375rem;
+  right: -0.375rem;
+  border-radius: 50%;
+  border: 0.125rem solid white;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--primary-green);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0.1875rem 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+.header__icon-img {
+  width: 1.125rem;
+  height: 1.125rem;
+  vertical-align: middle;
+}
+
+.header__social {
+  display: flex;
+  margin-top: 1.25rem;
+  gap: 0.9375rem;
+  justify-content: end;
+  align-items: center;
+}
+
+.header__social-icon {
+  width: 1.5625rem;
+  height: 1.5625rem;
+  filter: brightness(0) invert(1);
+  transition: all 0.2s ease;
+  vertical-align: middle;
+}
+
+.header__social-icon:hover {
+  filter: brightness(1) invert(0.5) sepia(1) saturate(5) hue-rotate(-20deg);
+  transform: translateY(-0.125rem);
+}
+
+/* =================================
+   Lista de Serviços
+================================= */
+
+.services__list {
+  display: flex;
+  list-style-type: none;
+  gap: 0.3rem;
+  color: var(--primary-green);
+  padding: 1.875rem 0.625rem 0;
+  justify-content: center;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.services__item {
+  background-color: rgba(76, 175, 80, 0.1);
+  padding: 0.25rem 0.5rem;
+  border-radius: 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.services__item:hover {
+  background-color: rgba(76, 175, 80, 0.2);
+  transform: translateY(-1px);
+}
+
+/* =================================
+   Cards de Consultoria
+================================= */
+
+.consulting__list {
+  list-style: none;
+}
+
+.consulting__card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.9375rem 1.875rem;
+  border: 0.0625rem solid var(--border-color);
+  border-radius: 0.625rem;
+  padding: 1rem 1.25rem;
+  transition: all 0.3s ease;
+  font-weight: normal;
+  font-size: 0.9375rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.consulting__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto 0;
+}
+
+.consulting__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+.consulting__contact-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.9375rem;
+}
+
+.consulting__card--contact {
+  justify-content: space-between;
+  background-color: rgba(102, 102, 102, 0.1);
+  margin-top: 1.875rem;
+}
+
+.consulting__whatsapp-btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.3125rem;
+  background-color: var(--primary-green);
+  border: none;
+  font-size: 0.8125rem;
+  position: relative;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.consulting__whatsapp-btn:hover {
+  background-color: rgb(64, 150, 67);
+}
+
+.consulting__whatsapp-btn::before {
+  content: "";
+  width: 0.9375rem;
+  height: 0.9375rem;
+  background-image: url("../icons/message-circle-2.svg");
+  background-size: cover;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  transform: translateY(-50%);
+}
+
+.consulting__whatsapp-btn a {
+  text-decoration: none;
+  color: var(--light-text);
+  display: inline-block;
+  margin-left: 0.625rem;
+}
+
+.consulting__card--orange {
+  background-color: var(--primary-orange);
+  border: 0.0625rem solid var(--primary-orange);
+  color: var(--light-text);
+}
+
+.consulting__card--green {
+  background-color: var(--light-bg);
+  border: 0.0625rem solid var(--border-color);
+  color: var(--dark-text);
+}
+
+.consulting__card--orange::before {
+  content: "";
+  position: absolute;
+  background-color: var(--light-bg);
+  width: 0.25rem;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transition: all 0.3s ease;
+}
+
+.consulting__card--green::before {
+  content: "";
+  position: absolute;
+  background-color: var(--primary-green);
+  width: 0.25rem;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transition: all 0.3s ease;
+}
+
+.consulting__card--orange:hover {
+  background-color: #e05a1c;
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.08);
+}
+
+.consulting__card--green:hover {
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.08);
+  border-color: rgba(76, 175, 80, 1);
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.consulting__card:hover::before {
+  width: 0.375rem;
+}
+
+.consulting__card--orange:hover {
+  background-color: #e05a1c;
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.08);
+}
+
+.consulting__title {
+  font-size: 0.9375rem;
+  font-weight: normal;
+}
+
+.consulting__title--contact {
+  font-size: 0.75rem;
+  color: var(--mid-text);
+  font-weight: normal;
+}
+
+.consulting__subtitle {
+  font-size: 0.75rem;
+  font-weight: normal;
+  color: var(--mid-text);
+}
+
+.consulting__subtitle--contact {
+  font-size: 0.875rem;
+  color: var(--dark-text);
+  font-weight: normal;
+}
+
+.consulting__subtitle--orange {
+  font-weight: normal;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* =================================
+   Footer
+================================= */
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 2.1875rem;
+  position: relative;
+  perspective: 800px;
+  z-index: 0;
+}
+
+.footer img {
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  left: 20px;
+  top: -20px;
+  transform: rotateX(20deg);
+  z-index: -1;
+  opacity: 0.3;
+  transform: translateY(10%);
+}
+
+.footer__title {
+  font-size: 0.9375rem;
+  color: var(--primary-orange);
+  text-transform: uppercase;
+}
+
+.footer__title-highlight {
+  color: var(--dark-text);
+  text-transform: capitalize;
+  font-size: 0.8125rem;
+  font-weight: bold;
+}
+
+.footer__copyright {
+  font-size: 0.8125rem;
+  color: var(--mid-text);
+  font-weight: normal;
+}
+
+/* =================================
+   Media Queries - Responsividade
+================================= */
+
+@media (max-width: 30rem) {
+  .container {
+    max-width: 99vw;
+    border-radius: 0.65rem;
+    padding: 0 0 1.4rem 0;
+  }
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .header__logo {
+    width: 5rem;
+    height: 5rem;
+    margin-right: 0;
+    margin-bottom: 0.7rem;
+  }
+  .header__icon {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  .header__icon-img {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+
+  .header__title {
+    font-size: 1.1rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .header__title-highlight {
+    font-size: 1.1rem;
+  }
+
+  .header__subtitle {
+    font-size: 0.9rem;
+    margin-left: 0.7rem;
+  }
+
+  .header__social {
+    gap: 0.8rem;
+    justify-content: center;
+  }
+
+  .header__social-icon {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  .services__list {
+    padding: 1.3rem 0.4rem 0;
+    gap: 0.25rem;
+  }
+  
+  .services__item {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.7rem;
+  }
+
+  .consulting__card {
+    margin: 0.7rem 1rem;
+    padding: 0.9rem 1rem;
+    font-size: 0.85rem;
+    gap: 0.8rem;
+    align-items: center;
+  }
+
+  .consulting__icon {
+    width: 1.4rem;
+    height: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .consulting__title {
+    font-size: 0.95rem;
+    font-weight: normal;
+  }
+  .consulting__card--contact {
+    margin-top: 1.7rem;
+  }
+  .consulting__whatsapp-btn {
+    padding: 0.48rem 1rem;
+    font-size: 0.72rem;
+  }
+  .consulting__whatsapp-btn::before {
+    width: 0.9375rem;
+    height: 0.9375rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .footer {
+    margin-top: 1.5rem;
+  }
+  .footer img {
+    display: none;
+  }
+  .footer__title {
+    font-size: 1rem;
+  }
+  .footer__title-highlight,
+  .footer__copyright {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 27.5rem) {
+  /* 440px */
+  .header__title {
+    font-size: 1.075rem;
+  }
+
   .header__title-highlight {
     font-size: 1.075rem;
   }
@@ -563,7 +1127,7 @@ body {
 
   .header__subtitle::before {
     top: 50%;
-    left: 0.625rem;
+    left: .8125rem;
     transform: translateY(-50%);
   }
 
@@ -580,7 +1144,7 @@ body {
     padding: 1.25rem 0.4rem 0;
     gap: 0.275rem;
   }
-
+  
   .services__item {
     padding: 0.2rem 0.385rem;
     font-size: 0.695rem;
@@ -603,15 +1167,26 @@ body {
     font-size: 0.735rem;
   }
 
-  .consulting__whatsapp-btn::before {
-    top: 50%;
-    left: 0.4375rem;
-    transform: translateY(-50%);
+  .consulting__subtitle--contact {
+    font-size: 0.875rem;
+  }
+
+  .footer__title {
+    font-size: 0.975rem;
+  }
+
+  .footer__title-highlight,
+  .footer__copyright {
+    font-size: 0.875rem;
   }
 }
 
 @media (max-width: 26.875rem) {
-  .header__title,
+  /* 430px */
+  .header__title {
+    font-size: 1.05rem;
+  }
+
   .header__title-highlight {
     font-size: 1.05rem;
   }
@@ -632,7 +1207,7 @@ body {
 
   .header__subtitle::before {
     top: 50%;
-    left: 10px;
+    left: .75rem;
     transform: translateY(-50%);
   }
 
@@ -647,8 +1222,9 @@ body {
 
   .services__list {
     padding: 1.2rem 0.4rem 0;
+    gap: 0.275rem;
   }
-
+  
   .services__item {
     padding: 0.2rem 0.375rem;
     font-size: 0.685rem;
@@ -670,9 +1246,23 @@ body {
   .consulting__subtitle {
     font-size: 0.725rem;
   }
+
+  .consulting__subtitle--contact {
+    font-size: 0.85rem;
+  }
+
+  .footer__title {
+    font-size: 0.95rem;
+  }
+
+  .footer__title-highlight,
+  .footer__copyright {
+    font-size: 0.85rem;
+  }
 }
 
 @media (max-width: 25.875rem) {
+  /* iPhone 11, XR, 12, 13, 14 padrão */
   .header__title {
     font-size: 1rem;
   }
@@ -693,7 +1283,7 @@ body {
 
   .header__subtitle::before {
     top: 50%;
-    left: 0.625rem;
+    left: .75rem;
     transform: translateY(-50%);
   }
 
@@ -704,7 +1294,6 @@ body {
   .header__social {
     gap: 0.7rem;
   }
-
   .header__social-icon {
     width: 1.3rem;
     height: 1.3rem;
@@ -721,10 +1310,24 @@ body {
 
   .consulting__title {
     font-size: 0.85rem;
+    font-weight: normal;
   }
 
   .consulting__subtitle {
     font-size: 0.7rem;
+  }
+
+  .consulting__subtitle--contact {
+    font-size: 0.8rem;
+  }
+
+  .footer__title {
+    font-size: 0.9rem;
+  }
+
+  .footer__title-highlight,
+  .footer__copyright {
+    font-size: 0.8rem;
   }
 }
 
@@ -735,27 +1338,25 @@ body {
 
   .header__subtitle::before {
     top: 50%;
-    left: 0.375rem;
+    left: .375rem;
     transform: translateY(-50%);
   }
 }
 
 @media (max-width: 25rem) {
+  /* 400px */
   .header__icon {
     width: 1.3rem;
     height: 1.3rem;
   }
-
   .header__icon-img {
     width: 1rem;
     height: 1rem;
   }
-
   .header__title {
     font-size: 0.95rem;
     margin-bottom: 0.5rem;
   }
-
   .header__title-highlight {
     font-size: 0.95rem;
   }
@@ -767,14 +1368,17 @@ body {
 
   .header__subtitle::before {
     top: 50%;
-    left: 0.75rem;
+    left: .75rem;
     transform: translateY(-50%);
+  }
+
+  .header__description {
+    font-size: 11px;
   }
 
   .header__social {
     gap: 0.6rem;
   }
-
   .header__social-icon {
     width: 1.2rem;
     height: 1.2rem;
@@ -784,29 +1388,53 @@ body {
     padding: 1rem 0.3rem 0;
     gap: 0.2rem;
   }
-
+  
   .services__item {
     padding: 0.2rem 0.35rem;
     font-size: 0.65rem;
+  }
+
+  .consulting__title {
+    font-size: 0.85rem;
+    font-weight: normal;
+  }
+
+  .consulting__icon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .consulting__subtitle {
+    font-size: 0.7rem;
   }
 
   .consulting__card--contact {
     margin-top: 1.25rem;
   }
 
+  .consulting__subtitle--contact {
+    font-size: 0.75rem;
+  }
   .consulting__whatsapp-btn {
-    padding: 0.525rem 0.95rem;
+    padding: 0.4rem 0.7rem;
     font-size: 0.65rem;
   }
-
+  .consulting__whatsapp-btn::before {
+    width: 0.8125rem;
+    height: 0.8125rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
   .footer {
     margin-top: 1rem;
   }
-
+  .footer img {
+    display: none;
+  }
   .footer__title {
     font-size: 0.8rem;
   }
-
   .footer__title-highlight,
   .footer__copyright {
     font-size: 0.7rem;
@@ -814,29 +1442,31 @@ body {
 }
 
 @media (max-width: 23.4375rem) {
-  .header__title,
+  .header__title {
+    font-size: 0.85rem;
+  }
+
   .header__title-highlight {
     font-size: 0.85rem;
   }
 
   .header__subtitle {
-    font-size: 0.75rem;
+    font-size: .75rem;
   }
 
   .header__subtitle::before {
     top: 50%;
-    left: 0.125rem;
+    left: .125rem;
     transform: translateY(-50%);
   }
 
   .header__description {
-    font-size: 0.6625rem;
+    font-size: .6625rem;
   }
 
   .header__social {
     gap: 0.5rem;
   }
-
   .header__social-icon {
     width: 1.1rem;
     height: 1.1rem;
@@ -853,6 +1483,7 @@ body {
 
   .consulting__title {
     font-size: 0.75rem;
+    font-weight: normal;
   }
 
   .consulting__subtitle {
@@ -860,11 +1491,21 @@ body {
   }
 
   .consulting__subtitle--contact {
-    font-size: 0.7438rem;
+    font-size: 0.7rem;
+  }
+
+  .footer__title {
+    font-size: 0.7rem;
+  }
+
+  .footer__title-highlight,
+  .footer__copyright {
+    font-size: 0.65rem;
   }
 }
 
 @media (max-width: 20rem) {
+  /* 320px */
   .header__icon {
     width: 1.2rem;
     height: 1.2rem;
@@ -875,7 +1516,10 @@ body {
     height: 0.9rem;
   }
 
-  .header__title,
+  .header__title {
+    font-size: 0.75rem;
+  }
+
   .header__title-highlight {
     font-size: 0.75rem;
   }
@@ -886,18 +1530,17 @@ body {
 
   .header__subtitle::before {
     top: 50%;
-    left: -0.4375rem;
+    left: .125rem;
     transform: translateY(-50%);
   }
 
   .header__description {
-    font-size: 0.5437rem;
+    font-size: 0.55rem;
   }
 
   .header__social {
     gap: 0.4rem;
   }
-
   .header__social-icon {
     width: 1rem;
     height: 1rem;
@@ -914,6 +1557,7 @@ body {
 
   .consulting__title {
     font-size: 0.65rem;
+    font-weight: normal;
   }
 
   .consulting__subtitle {
@@ -921,7 +1565,7 @@ body {
   }
 
   .consulting__subtitle--contact {
-    font-size: 0.5125rem;
+    font-size: 0.5687rem;
   }
 
   .footer__title {
@@ -932,4 +1576,9 @@ body {
   .footer__copyright {
     font-size: 0.6rem;
   }
+
+  .footer img {
+    display: none;
+  }
+
 }
