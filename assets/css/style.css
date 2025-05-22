@@ -294,12 +294,14 @@ body {
   background-color: var(--primary-orange);
   border: 0.0625rem solid var(--primary-orange);
   color: var(--light-text);
+  cursor: pointer;
 }
 
 .consulting__card--green {
   background-color: var(--light-bg);
   border: 0.0625rem solid var(--border-color);
   color: var(--dark-text);
+  cursor: pointer;
 }
 
 .consulting__card--orange::before {
