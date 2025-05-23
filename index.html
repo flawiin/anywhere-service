@@ -32,6 +32,193 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <!-- Schema.org / JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Anywhere Service Consultoria",
+        "description": "Consultoria especializada em telecomunicações para provedores de internet em Alagoas e Pernambuco",
+        "image": "https://www.anywhereservice.com.br/assets/img/logo.jpeg",
+        "@id": "https://www.anywhereservice.com.br",
+        "url": "https://www.anywhereservice.com.br",
+        "telephone": "+55-82-98701-2399",
+        "email": "clodoaldo@anywhereservice.com.br",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Vitória de Santo Antão",
+          "addressRegion": "PE",
+          "postalCode": "55600-000",
+          "addressCountry": "BR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -8.120265,
+          "longitude": -35.002973
+        },
+        "areaServed": [
+          {
+            "@type": "State",
+            "name": "Alagoas",
+            "@id": "https://www.wikidata.org/wiki/Q40885",
+            "containedInPlace": {
+              "@type": "Country",
+              "name": "Brasil"
+            }
+          },
+          {
+            "@type": "State",
+            "name": "Pernambuco",
+            "@id": "https://www.wikidata.org/wiki/Q40942",
+            "containedInPlace": {
+              "@type": "Country",
+              "name": "Brasil"
+            }
+          }
+        ],
+        "serviceArea": [
+          {
+            "@type": "City",
+            "name": "Maceió",
+            "containedInPlace": {
+              "@type": "State",
+              "name": "Alagoas"
+            }
+          },
+          {
+            "@type": "City",
+            "name": "Arapiraca",
+            "containedInPlace": {
+              "@type": "State",
+              "name": "Alagoas"
+            }
+          },
+          {
+            "@type": "City",
+            "name": "Recife",
+            "containedInPlace": {
+              "@type": "State",
+              "name": "Pernambuco"
+            }
+          },
+          {
+            "@type": "City",
+            "name": "Caruaru",
+            "containedInPlace": {
+              "@type": "State",
+              "name": "Pernambuco"
+            }
+          },
+          {
+            "@type": "City",
+            "name": "Vitória de Santo Antão",
+            "containedInPlace": {
+              "@type": "State",
+              "name": "Pernambuco"
+            }
+          }
+        ],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "08:00",
+            "closes": "18:00"
+          }
+        ],
+        "sameAs": ["https://facebook.com/anywhereservice", "https://instagram.com/anywhereservice", "https://linkedin.com/in/clodoaldo-silva-79303b26"],
+        "keywords": ["consultoria TI Alagoas", "consultoria TI Pernambuco", "provedor internet Maceió", "provedor internet Recife", "BGP Alagoas", "IPv6 Pernambuco", "telecomunicações nordeste"],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Serviços de Consultoria",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Consultoria BGP",
+                "description": "Configuração e otimização de BGP para provedores em AL e PE"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Implementação IPv6",
+                "description": "Migração e implementação de IPv6 em Alagoas e Pernambuco"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Consultoria DNS",
+                "description": "Otimização e segurança de DNS"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Virtualização",
+                "description": "Implementação de soluções de virtualização"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Projetos de Backbone",
+                "description": "Design e implementação de backbone para operadoras"
+              }
+            }
+          ]
+        }
+      }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "A Anywhere Service atende em todo Alagoas?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sim, atendemos provedores de internet em todo o estado de Alagoas, incluindo Maceió, Arapiraca e demais cidades do interior."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Vocês fazem atendimento presencial em Pernambuco?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sim, realizamos atendimento presencial em todo Pernambuco. Nossa sede fica em Vitória de Santo Antão e atendemos Recife, Caruaru e região."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quais serviços a Anywhere Service oferece?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oferecemos consultoria especializada em BGP, IPv6, DNS, Virtualização e Backbone para provedores de internet em Alagoas e Pernambuco."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Qual o prazo de atendimento para Maceió?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Para clientes em Maceió e região metropolitana, conseguimos realizar atendimento presencial em até 24 horas úteis."
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <!-- Skip to main content link para acessibilidade -->
@@ -39,25 +226,29 @@
 
     <div class="container">
       <header class="header" role="banner">
-        <figure class="header__logo" role="img" aria-label="Logo da Anywhere Service Consultoria">
+        <figure class="header__logo" role="img" aria-label="Logo da Anywhere Service Consultoria - Alagoas e Pernambuco">
           <div class="header__icon" aria-hidden="true">
-            <img src="./assets/icons/wifi-3.svg" alt="" class="header__icon-img" />
+            <img src="./assets/icons/wifi-3.svg" alt="" class="header__icon-img" width="18" height="18" />
           </div>
         </figure>
 
         <div class="header__info">
-          <h1 class="header__title">Anywhere Service<span class="header__title-highlight">Consultoria</span></h1>
+          <h1 class="header__title">
+            Anywhere Service
+            <span class="header__title-highlight">Consultoria</span>
+            <span class="visually-hidden">em Alagoas e Pernambuco</span>
+          </h1>
           <p class="header__subtitle">Especialista em Provedores de Internet</p>
-          <p class="header__description">Com mais de 25 anos de experiência em TI, Backbone e implementação de projetos de telecomunicações em diversas operadoras.</p>
+          <p class="header__description">Com mais de 25 anos de experiência em TI, Backbone e implementação de projetos de telecomunicações em operadoras de <strong>Alagoas</strong> e <strong>Pernambuco</strong>.</p>
           <nav class="header__social" role="navigation" aria-label="Redes sociais">
             <a href="https://facebook.com/anywhereservice" target="_blank" rel="noopener noreferrer" aria-label="Visite nossa página no Facebook">
-              <img src="./assets/icons/Social-01-Facebook-Outline_icon-icons.com_66389.svg" alt="" class="header__social-icon" aria-hidden="true" />
+              <img src="./assets/icons/Social-01-Facebook-Outline_icon-icons.com_66389.svg" alt="" class="header__social-icon" aria-hidden="true" loading="lazy" width="25" height="25" />
             </a>
             <a href="https://instagram.com/anywhereservice" target="_blank" rel="noopener noreferrer" aria-label="Visite nosso perfil no Instagram">
-              <img src="./assets/icons/Social-32-Instagram-Outline_icon-icons.com_66387.svg" alt="" class="header__social-icon" aria-hidden="true" />
+              <img src="./assets/icons/Social-32-Instagram-Outline_icon-icons.com_66387.svg" alt="" class="header__social-icon" aria-hidden="true" loading="lazy" width="25" height="25" />
             </a>
             <a href="https://linkedin.com/in/clodoaldo-silva-79303b26" target="_blank" rel="noopener noreferrer" aria-label="Visite nosso perfil no LinkedIn">
-              <img src="./assets/icons/Social-35-Linkedin-Outline_icon-icons.com_66384.svg" alt="" class="header__social-icon" aria-hidden="true" />
+              <img src="./assets/icons/Social-35-Linkedin-Outline_icon-icons.com_66384.svg" alt="" class="header__social-icon" aria-hidden="true" loading="lazy" width="25" height="25" />
             </a>
           </nav>
         </div>
@@ -81,18 +272,18 @@
             <li>
               <a href="mailto:clodoaldo@anywhereservice.com.br" class="consulting__card consulting__card--orange" aria-label="Solicitar consultoria - Enviar email para falar com um especialista">
                 <span class="consulting__icon" aria-hidden="true">
-                  <img src="./assets/icons/plus-circle.svg" alt="" class="consulting__icon-img" />
+                  <img src="./assets/icons/plus-circle.svg" alt="" class="consulting__icon-img" loading="lazy" width="24" height="24" />
                 </span>
-                <div class="consulting__info">
-                  <h3 class="consulting__title">Solicitar Consultoria</h3>
-                  <p class="consulting__subtitle consulting__subtitle--orange">Fale com um especialista</p>
+                <div class="consulting__info" itemscope itemtype="https://schema.org/Service">
+                  <h3 class="consulting__title" itemprop="name">Solicitar Consultoria</h3>
+                  <p class="consulting__subtitle consulting__subtitle--orange" itemprop="description">Fale com um especialista</p>
                 </div>
               </a>
             </li>
             <li>
               <a href="./assets/documents/portifolio_anywhere.pdf" download="Portfólio Anywhere Service" class="consulting__card consulting__card--green" aria-label="Baixar portfólio - Casos de sucesso e projetos realizados">
                 <span class="consulting__icon" aria-hidden="true">
-                  <img src="./assets/icons/file-text.svg" alt="" class="consulting__icon-img" />
+                  <img src="./assets/icons/file-text.svg" alt="" class="consulting__icon-img" loading="lazy" width="24" height="24" />
                 </span>
                 <div class="consulting__info">
                   <h3 class="consulting__title">Portfólio</h3>
@@ -103,18 +294,18 @@
             <li>
               <a href="https://www.anywhereservice.com.br/#fh5co-features" class="consulting__card consulting__card--green" aria-label="Serviços - Soluções completas para provedores">
                 <span class="consulting__icon" aria-hidden="true">
-                  <img src="./assets/icons/settings.svg" alt="" class="consulting__icon-img" />
+                  <img src="./assets/icons/settings.svg" alt="" class="consulting__icon-img" loading="lazy" width="24" height="24" />
                 </span>
-                <div class="consulting__info">
-                  <h3 class="consulting__title">Serviços</h3>
-                  <p class="consulting__subtitle">Soluções completas para provedores</p>
+                <div class="consulting__info" itemscope itemtype="https://schema.org/Service">
+                  <h3 class="consulting__title" itemprop="name">Serviços</h3>
+                  <p class="consulting__subtitle" itemprop="description">Soluções completas para provedores</p>
                 </div>
               </a>
             </li>
             <li>
               <a href="https://www.anywhereservice.com.br/#fh5co-reviews" class="consulting__card consulting__card--green" aria-label="Clientes - Quem confia em nossa expertise">
                 <span class="consulting__icon" aria-hidden="true">
-                  <img src="./assets/icons/users.svg" alt="" class="consulting__icon-img" />
+                  <img src="./assets/icons/users.svg" alt="" class="consulting__icon-img" loading="lazy" width="24" height="24" />
                 </span>
                 <div class="consulting__info">
                   <h3 class="consulting__title">Clientes</h3>
@@ -125,22 +316,22 @@
             <li>
               <a href="https://www.anywhereservice.com.br/#fh5co-features" class="consulting__card consulting__card--green" aria-label="Soluções Telecom - Redes e sistemas para telecomunicações">
                 <span class="consulting__icon" aria-hidden="true">
-                  <img src="./assets/icons/monitor-2.svg" alt="" class="consulting__icon-img" />
+                  <img src="./assets/icons/monitor-2.svg" alt="" class="consulting__icon-img" loading="lazy" width="24" height="24" />
                 </span>
-                <div class="consulting__info">
-                  <h3 class="consulting__title">Soluções Telecom</h3>
-                  <p class="consulting__subtitle">Redes e sistemas para telecomunicações</p>
+                <div class="consulting__info" itemscope itemtype="https://schema.org/Service">
+                  <h3 class="consulting__title" itemprop="name">Soluções Telecom</h3>
+                  <p class="consulting__subtitle" itemprop="description">Redes e sistemas para telecomunicações</p>
                 </div>
               </a>
             </li>
             <li>
               <a href="https://www.anywhereservice.com.br/#fh5co-features" class="consulting__card consulting__card--green" aria-label="Treinamentos - Capacitação para equipes técnicas">
                 <span class="consulting__icon" aria-hidden="true">
-                  <img src="./assets/icons/book.svg" alt="" class="consulting__icon-img" />
+                  <img src="./assets/icons/book.svg" alt="" class="consulting__icon-img" loading="lazy" width="24" height="24" />
                 </span>
-                <div class="consulting__info">
-                  <h3 class="consulting__title">Treinamentos</h3>
-                  <p class="consulting__subtitle">Capacitação para equipes técnicas</p>
+                <div class="consulting__info" itemscope itemtype="https://schema.org/Service">
+                  <h3 class="consulting__title" itemprop="name">Treinamentos</h3>
+                  <p class="consulting__subtitle" itemprop="description">Capacitação para equipes técnicas</p>
                 </div>
               </a>
             </li>
@@ -150,7 +341,7 @@
         <section class="consulting__card consulting__card--contact" aria-label="Informações de contato">
           <div class="consulting__contact-wrapper">
             <span class="consulting__icon" aria-hidden="true">
-              <img src="./assets/icons/phone.svg" alt="" class="consulting__icon-img" />
+              <img src="./assets/icons/phone.svg" alt="" class="consulting__icon-img" loading="lazy" width="24" height="24" />
             </span>
             <div class="consulting__info">
               <h3 class="consulting__title--contact">Atendimento</h3>
@@ -159,20 +350,58 @@
               </p>
             </div>
           </div>
-          <button class="consulting__whatsapp-btn" type="button" onclick="window.open('https://wa.me/5582987012399?text=Olá,+gostaria+de+saber+mais+sobre+seus+serviços.', '_blank')" aria-label="Abrir WhatsApp para contato">WhatsApp</button>
+          <button class="consulting__whatsapp-btn" type="button" onclick="window.open('https://wa.me/5582987012399?text=Olá,+gostaria+de+saber+mais+sobre+seus+serviços+em+Alagoas+e+Pernambuco.', '_blank')" aria-label="Abrir WhatsApp para contato">WhatsApp</button>
         </section>
       </main>
 
       <footer class="footer" role="contentinfo">
-        <img src="./assets/icons/rss-3.svg" alt="" aria-hidden="true" />
+        <!-- Microdata para SEO local -->
+        <div itemscope itemtype="https://schema.org/LocalBusiness" class="visually-hidden">
+          <meta itemprop="name" content="Anywhere Service Consultoria" />
+          <meta itemprop="description" content="Consultoria especializada para provedores de internet em Alagoas e Pernambuco" />
+
+          <address itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            <meta itemprop="addressLocality" content="Vitória de Santo Antão" />
+            <meta itemprop="addressRegion" content="PE" />
+            <meta itemprop="addressCountry" content="BR" />
+          </address>
+
+          <meta itemprop="telephone" content="+55-82-98701-2399" />
+          <meta itemprop="areaServed" content="Alagoas" />
+          <meta itemprop="areaServed" content="Pernambuco" />
+
+          <div itemprop="geo" itemscope itemtype="https://schema.org/GeoCoordinates">
+            <meta itemprop="latitude" content="-8.120265" />
+            <meta itemprop="longitude" content="-35.002973" />
+          </div>
+        </div>
+
+        <img src="./assets/icons/rss-3.svg" alt="" aria-hidden="true" loading="lazy" width="75" height="75" />
         <h2 class="footer__title">
           Anywhere Service
           <span class="footer__title-highlight">Consultoria</span>
         </h2>
         <p class="footer__copyright">
           &copy; 2025 &bull; Especialista em revitalizar suas operações de
-          <br />telecomunicações
+          <br />telecomunicações em <strong>Alagoas e Pernambuco</strong>
         </p>
+
+        <!-- SEO Hidden Content para melhor indexação regional -->
+        <div class="visually-hidden" aria-hidden="true">
+          <h3>Áreas de Atendimento</h3>
+          <ul>
+            <li>Consultoria TI em Maceió - AL</li>
+            <li>Consultoria TI em Arapiraca - AL</li>
+            <li>Consultoria TI em Recife - PE</li>
+            <li>Consultoria TI em Caruaru - PE</li>
+            <li>Consultoria TI em Vitória de Santo Antão - PE</li>
+            <li>Provedores de Internet em Alagoas</li>
+            <li>Provedores de Internet em Pernambuco</li>
+            <li>BGP Alagoas</li>
+            <li>IPv6 Pernambuco</li>
+            <li>Telecomunicações Nordeste</li>
+          </ul>
+        </div>
       </footer>
     </div>
   </body>

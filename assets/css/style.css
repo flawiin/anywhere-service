@@ -1,5 +1,7 @@
 /* =================================
    Reset e Variáveis Globais
+   Anywhere Service Consultoria
+   Atendimento: Alagoas e Pernambuco
 ================================= */
 
 * {
@@ -9,25 +11,28 @@
 }
 
 :root {
+  /* Cores principais da marca */
   --primary-blue: #1e2635;
   --primary-orange: #f26c29;
   --primary-green: #4caf50;
+
+  /* Cores de background e texto */
   --light-bg: #ffffff;
   --dark-text: #333333;
   --mid-text: #666666;
   --light-text: #ffffff;
   --border-color: #e5e5e5;
-  
+
   /* Cores de acessibilidade com melhor contraste */
   --text-on-blue: #ffffff;
   --text-on-orange: #ffffff;
   --text-muted: rgba(255, 255, 255, 0.9);
-  
-  /* Tamanhos mínimos para acessibilidade */
+
+  /* Tamanhos mínimos para acessibilidade WCAG */
   --min-font-size: 0.75rem; /* 12px mínimo */
   --min-touch-target: 2.75rem; /* 44px mínimo */
-  
-  /* Focus styles */
+
+  /* Focus styles para navegação por teclado */
   --focus-color: #0066cc;
   --focus-outline: 0.1875rem solid var(--focus-color);
   --focus-offset: 0.125rem;
@@ -89,6 +94,17 @@ body {
 
 :focus:not(:focus-visible) {
   outline: none;
+}
+
+/* Melhora CLS para imagens */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+img[width][height] {
+  aspect-ratio: attr(width) / attr(height);
 }
 
 .container {
@@ -169,7 +185,6 @@ body {
   color: var(--primary-orange);
   font-size: 0.75rem;
   text-transform: capitalize;
-  margin-left: 0.3125rem;
 }
 
 .header__subtitle {
@@ -201,6 +216,11 @@ body {
   word-wrap: break-word;
   padding: 0 0.5rem;
   line-height: 1.4;
+}
+
+.header__description strong {
+  color: var(--text-on-blue);
+  font-weight: 600;
 }
 
 .header__social {
@@ -452,11 +472,8 @@ body {
   font-weight: normal;
   color: var(--mid-text);
   display: -webkit-box;
-  display: box;
   -webkit-line-clamp: 2;
-  line-clamp: 2;
   -webkit-box-orient: vertical;
-  box-orient: vertical;
   overflow: hidden;
   line-height: 1.3;
 }
@@ -516,6 +533,11 @@ body {
   line-height: 1.4;
 }
 
+.footer__copyright strong {
+  color: var(--dark-text);
+  font-weight: 600;
+}
+
 /* =================================
    Media Queries - Progressive Enhancement
 ================================= */
@@ -524,140 +546,139 @@ body {
 @media (min-width: 23.4375rem) {
   body {
     padding: 1.5rem 0;
-    justify-content: center;
   }
-  
+
   .container {
     border-radius: 0.625rem;
     padding: 0 0 1.125rem 0;
   }
-  
+
   .header {
     padding: 1.125rem 1.125rem;
+    justify-content: center;
   }
-  
+
   .header__logo {
     width: 4.75rem;
     height: 4.75rem;
     margin-bottom: 0.6875rem;
   }
-  
+
   .header__icon {
     width: 1.1875rem;
     height: 1.1875rem;
   }
-  
+
   .header__icon-img {
     width: 0.8125rem;
     height: 0.8125rem;
   }
-  
+
   .header__title,
   .header__title-highlight {
     font-size: 0.8125rem;
     margin-bottom: 0.4375rem;
-    margin-left: 0.3125rem;
   }
-  
+
   .header__subtitle {
     font-size: 0.6875rem;
     margin-bottom: 0.4375rem;
     gap: 0.4375rem;
   }
-  
+
   .header__subtitle::before {
     width: 0.8125rem;
     height: 0.8125rem;
   }
-  
+
   .header__description {
     font-size: 0.6875rem;
     padding: 0 0.625rem;
   }
-  
+
   .header__social {
     margin-top: 0.9375rem;
     gap: 0.4375rem;
   }
-  
+
   .header__social a {
     width: 1.875rem;
     height: 1.875rem;
   }
-  
+
   .header__social-icon {
     width: 1.125rem;
     height: 1.125rem;
   }
-  
+
   .services__list {
     padding: 0.9375rem 0.3125rem 0;
     gap: 0.21875rem;
   }
-  
+
   .services__item {
     padding: 0.21875rem 0.34375rem;
     font-size: 0.6875rem;
     min-height: 1.875rem;
   }
-  
+
   .consulting__card {
     margin: 0.5625rem 0.875rem;
     padding: 0.8125rem 0.9375rem;
     font-size: 0.8125rem;
     gap: 0.6875rem;
   }
-  
+
   .consulting__icon {
     width: 0.9375rem;
     height: 0.9375rem;
   }
-  
+
   .consulting__title {
     font-size: 0.8125rem;
   }
-  
+
   .consulting__title--contact {
     font-size: 0.6875rem;
   }
-  
+
   .consulting__subtitle {
     font-size: 0.6875rem;
   }
-  
+
   .consulting__subtitle--contact {
     font-size: 0.8125rem;
   }
-  
+
   .consulting__subtitle--orange {
     font-size: 0.6875rem;
   }
-  
+
   .consulting__card--contact {
     margin-top: 1.0625rem;
   }
-  
+
   .consulting__whatsapp-btn {
     padding: 0.5625rem 0.8125rem;
     padding-left: 1.625rem;
     font-size: 0.6875rem;
     min-height: 2.125rem;
   }
-  
+
   .consulting__whatsapp-btn::before {
     width: 0.8125rem;
     height: 0.8125rem;
     left: 0.4375rem;
   }
-  
+
   .footer {
     margin-top: 0.9375rem;
   }
-  
+
   .footer__title {
     font-size: 0.6875rem;
   }
-  
+
   .footer__title-highlight,
   .footer__copyright {
     font-size: 0.6875rem;
@@ -666,61 +687,57 @@ body {
 
 /* 393px - Pixel 7, 8 */
 @media (min-width: 24.5625rem) {
-  body {
-    justify-content: center;
-  }
-  
   .header {
     padding: 1.1875rem 1.1875rem;
+    justify-content: center;
   }
-  
+
   .header__logo {
     width: 4.875rem;
     height: 4.875rem;
   }
-  
+
   .header__icon {
     width: 1.25rem;
     height: 1.25rem;
   }
-  
+
   .header__icon-img {
     width: 0.875rem;
     height: 0.875rem;
   }
-  
+
   .header__title,
   .header__title-highlight {
     font-size: 0.875rem;
-    margin-left: 0.3125rem;
   }
-  
+
   .header__subtitle {
     font-size: 0.71875rem;
   }
-  
+
   .header__description {
     font-size: 0.71875rem;
   }
-  
+
   .header__social a {
     width: 2rem;
     height: 2rem;
   }
-  
+
   .header__social-icon {
     width: 1.1875rem;
     height: 1.1875rem;
   }
-  
+
   .services__item {
     font-size: 0.71875rem;
   }
-  
+
   .consulting__card {
     font-size: 0.84375rem;
   }
-  
+
   .consulting__title {
     font-size: 0.84375rem;
   }
@@ -730,82 +747,81 @@ body {
 @media (min-width: 25rem) {
   body {
     padding: 1.75rem 0;
-    justify-content: center;
   }
-  
+
   .container {
     padding: 0 0 1.25rem 0;
   }
-  
+
   .header {
     padding: 1.25rem 1.25rem;
+    justify-content: center;
   }
-  
+
   .header__logo {
     width: 5rem;
     height: 5rem;
     margin-bottom: 0.75rem;
   }
-  
+
   .header__icon {
     width: 1.3125rem;
     height: 1.3125rem;
   }
-  
+
   .header__icon-img {
     width: 0.9375rem;
     height: 0.9375rem;
   }
-  
+
   .header__title,
   .header__title-highlight {
     font-size: 0.9375rem;
     margin-bottom: 0.5rem;
-    margin-left: 0.3125rem;
   }
-  
+
   .header__subtitle {
     font-size: 0.75rem;
     margin-bottom: 0.5rem;
     gap: 0.5rem;
   }
-  
+
   .header__subtitle::before {
     width: 0.875rem;
     height: 0.875rem;
   }
-  
+
   .header__description {
     font-size: 0.75rem;
     padding: 0 0.75rem;
   }
-  
+
   .header__social {
     margin-top: 1rem;
     gap: 0.5rem;
   }
-  
+
   .header__social a {
     width: 2.125rem;
     height: 2.125rem;
   }
-  
+
   .header__social-icon {
     width: 1.25rem;
     height: 1.25rem;
   }
-  
+
   .services__list {
     padding: 1rem 0.375rem 0;
     gap: 0.25rem;
   }
-  
+
   .services__item {
     padding: 0.25rem 0.375rem;
     font-size: 0.75rem;
     min-height: 2rem;
   }
-  
+
   .consulting__card {
     margin: 0.625rem 1rem;
     padding: 0.875rem 1rem;
@@ -813,57 +829,57 @@ body {
     gap: 0.75rem;
     min-height: 3.25rem;
   }
-  
+
   .consulting__icon {
     width: 1rem;
     height: 1rem;
   }
-  
+
   .consulting__title {
     font-size: 0.875rem;
   }
-  
+
   .consulting__title--contact {
     font-size: 0.71875rem;
   }
-  
+
   .consulting__subtitle {
     font-size: 0.71875rem;
   }
-  
+
   .consulting__subtitle--contact {
     font-size: 0.84375rem;
   }
-  
+
   .consulting__subtitle--orange {
     font-size: 0.71875rem;
   }
-  
+
   .consulting__card--contact {
     margin-top: 1.125rem;
   }
-  
+
   .consulting__whatsapp-btn {
     padding: 0.625rem 0.875rem;
     padding-left: 1.75rem;
     font-size: 0.71875rem;
     min-height: 2.25rem;
   }
-  
+
   .consulting__whatsapp-btn::before {
     width: 0.875rem;
     height: 0.875rem;
     left: 0.5rem;
   }
-  
+
   .footer {
     margin-top: 1rem;
   }
-  
+
   .footer__title {
     font-size: 0.75rem;
   }
-  
+
   .footer__title-highlight,
   .footer__copyright {
     font-size: 0.71875rem;
@@ -872,78 +888,74 @@ body {
 
 /* 414px - iPhone 11, XR, 12, 13, 14 */
 @media (min-width: 25.875rem) {
-  body {
-    justify-content: center;
-  }
-  
   .header {
     padding: 1.3125rem 1.3125rem;
+    justify-content: center;
   }
-  
+
   .header__icon {
     width: 1.375rem;
     height: 1.375rem;
   }
-  
+
   .header__icon-img {
     width: 1rem;
     height: 1rem;
   }
-  
+
   .header__title,
   .header__title-highlight {
     font-size: 1rem;
-    margin-left: 0.3125rem;
   }
-  
+
   .header__subtitle {
     font-size: 0.8125rem;
   }
-  
+
   .header__subtitle::before {
     width: 0.9375rem;
     height: 0.9375rem;
   }
-  
+
   .header__description {
     font-size: 0.78125rem;
   }
-  
+
   .header__social {
     gap: 0.5625rem;
   }
-  
+
   .header__social a {
     width: 2.25rem;
     height: 2.25rem;
   }
-  
+
   .header__social-icon {
     width: 1.3125rem;
     height: 1.3125rem;
   }
-  
+
   .services__item {
     font-size: 0.78125rem;
   }
-  
+
   .consulting__card {
     font-size: 0.90625rem;
   }
-  
+
   .consulting__icon {
     width: 1.0625rem;
     height: 1.0625rem;
   }
-  
+
   .consulting__title {
     font-size: 0.90625rem;
   }
-  
+
   .consulting__subtitle {
     font-size: 0.75rem;
   }
-  
+
   .footer__copyright {
     font-size: 0.75rem;
   }
@@ -951,83 +963,79 @@ body {
 
 /* 430px */
 @media (min-width: 26.875rem) {
-  body {
-    justify-content: center;
-  }
-  
   .header {
     padding: 1.375rem 1.375rem;
+    justify-content: center;
   }
-  
+
   .header__logo {
     width: 5.125rem;
     height: 5.125rem;
   }
-  
+
   .header__title,
   .header__title-highlight {
     font-size: 1.0625rem;
-    margin-left: 0.3125rem;
   }
-  
+
   .header__subtitle {
     font-size: 0.84375rem;
   }
-  
+
   .header__description {
     font-size: 0.8125rem;
   }
-  
+
   .header__social {
     gap: 0.625rem;
   }
-  
+
   .header__social-icon {
     width: 1.375rem;
     height: 1.375rem;
   }
-  
+
   .services__list {
     padding: 1.125rem 0.4375rem 0;
     gap: 0.28125rem;
   }
-  
+
   .services__item {
     padding: 0.28125rem 0.40625rem;
     font-size: 0.8125rem;
   }
-  
+
   .consulting__card {
     margin: 0.6875rem 1.125rem;
     padding: 0.9375rem 1.0625rem;
     font-size: 0.9375rem;
   }
-  
+
   .consulting__icon {
     width: 1.125rem;
     height: 1.125rem;
   }
-  
+
   .consulting__title {
     font-size: 0.9375rem;
   }
-  
+
   .consulting__title--contact {
     font-size: 0.75rem;
   }
-  
+
   .consulting__subtitle {
     font-size: 0.78125rem;
   }
-  
+
   .consulting__card--contact {
     margin-top: 1.25rem;
   }
-  
+
   .footer__title {
     font-size: 0.8125rem;
   }
-  
+
   .footer__title-highlight,
   .footer__copyright {
     font-size: 0.75rem;
@@ -1038,122 +1046,121 @@ body {
 @media (min-width: 27.5rem) {
   body {
     padding: 2rem 0;
-    justify-content: center;
   }
-  
+
   .container {
     border-radius: 0.6875rem;
     padding: 0 0 1.375rem 0;
   }
-  
+
   .header {
     padding: 1.4375rem 1.4375rem;
+    justify-content: center;
   }
-  
+
   .header__logo {
     width: 5.25rem;
     height: 5.25rem;
   }
-  
+
   .header__icon {
     width: 1.4375rem;
     height: 1.4375rem;
   }
-  
+
   .header__icon-img {
     width: 1.0625rem;
     height: 1.0625rem;
   }
-  
+
   .header__title,
   .header__title-highlight {
     font-size: 1.125rem;
-    margin-left: 0.3125rem;
   }
-  
+
   .header__subtitle {
     font-size: 0.875rem;
   }
-  
+
   .header__description {
     font-size: 0.84375rem;
   }
-  
+
   .header__social {
     margin-top: 1.125rem;
     gap: 0.6875rem;
   }
-  
+
   .header__social a {
     width: 2.375rem;
     height: 2.375rem;
   }
-  
+
   .header__social-icon {
     width: 1.4375rem;
     height: 1.4375rem;
   }
-  
+
   .services__list {
     padding: 1.1875rem 0.5rem 0;
     gap: 0.3125rem;
   }
-  
+
   .services__item {
     padding: 0.3125rem 0.4375rem;
     font-size: 0.84375rem;
     min-height: 2.125rem;
   }
-  
+
   .consulting__card {
     margin: 0.75rem 1.25rem;
     padding: 1rem 1.125rem;
     font-size: 0.96875rem;
     gap: 0.8125rem;
   }
-  
+
   .consulting__icon {
     width: 1.1875rem;
     height: 1.1875rem;
   }
-  
+
   .consulting__title {
     font-size: 0.96875rem;
   }
-  
-  .consulting__title--contact {
-    font-size: 0.75rem;
-  }
-  
+
   .consulting__subtitle {
     font-size: 0.8125rem;
   }
-  
+
+  .consulting__subtitle--contact {
+    font-size: 0.875rem;
+  }
+
   .consulting__card--contact {
     margin-top: 1.375rem;
   }
-  
+
   .consulting__whatsapp-btn {
     padding: 0.6875rem 0.9375rem;
     padding-left: 1.875rem;
     font-size: 0.75rem;
     min-height: 2.375rem;
   }
-  
+
   .consulting__whatsapp-btn::before {
     width: 0.9375rem;
     height: 0.9375rem;
     left: 0.5625rem;
   }
-  
+
   .footer {
     margin-top: 1.125rem;
   }
-  
+
   .footer__title {
     font-size: 0.875rem;
   }
-  
+
   .footer__title-highlight,
   .footer__copyright {
     font-size: 0.78125rem;
@@ -1164,50 +1171,49 @@ body {
 @media (min-width: 30rem) {
   body {
     padding: 2.5rem 0;
-    justify-content: center;
   }
-  
+
   .container {
     max-width: 32.5rem;
     width: 90%;
     border-radius: 0.75rem;
     padding: 0 0 1.875rem 0;
   }
-  
+
   .header {
     flex-direction: row;
     align-items: flex-start;
     text-align: left;
     padding: 1.5625rem 1.875rem;
+    justify-content: center;
   }
-  
+
   .header__logo {
     width: 5.625rem;
     height: 5.625rem;
     margin-right: 1.5625rem;
     margin-bottom: 0;
   }
-  
+
   .header__icon {
     width: 1.5rem;
     height: 1.5rem;
   }
-  
+
   .header__icon-img {
     width: 1.125rem;
     height: 1.125rem;
   }
-  
+
   .header__title {
     font-size: 1.375rem;
     margin-bottom: 0.9375rem;
   }
-  
+
   .header__title-highlight {
     font-size: 1.375rem;
-    margin-left: 0.3125rem;
   }
-  
+
   .header__subtitle {
     font-size: 0.75rem;
     margin: 0 0 0.5rem 1.125rem;
@@ -1216,26 +1222,30 @@ body {
     position: relative;
     padding-left: 0;
   }
-  
+
   .header__subtitle::before {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     left: -1.125rem;
   }
-  
+
   .header__description {
     font-size: 0.75rem;
     padding: 0;
     opacity: 0.8;
   }
-  
+
+  .header__description strong {
+    opacity: 1;
+  }
+
   .header__social {
     gap: 0.9375rem;
     justify-content: flex-end;
     margin-top: 1.25rem;
   }
-  
+
   .header__social a {
     width: auto;
     height: auto;
@@ -1243,24 +1253,24 @@ body {
     min-height: auto;
     padding: 0;
   }
-  
+
   .header__social-icon {
     width: 1.5625rem;
     height: 1.5625rem;
   }
-  
+
   .services__list {
     padding: 1.875rem 0.625rem 0;
     gap: 0.3rem;
     flex-wrap: nowrap;
   }
-  
+
   .services__item {
     padding: 0.25rem 0.5rem;
     font-size: 0.75rem;
     min-height: auto;
   }
-  
+
   .consulting__card {
     margin: 0.9375rem 1.875rem;
     padding: 1rem 1.25rem;
@@ -1268,64 +1278,64 @@ body {
     gap: 0.75rem;
     min-height: auto;
   }
-  
+
   .consulting__icon {
     width: 1.5rem;
     height: 1.5rem;
   }
-  
+
   .consulting__title {
     font-size: 0.9375rem;
   }
-  
+
   .consulting__title--contact {
     font-size: 0.75rem;
   }
-  
+
   .consulting__subtitle {
     font-size: 0.75rem;
   }
-  
+
   .consulting__subtitle--contact {
     font-size: 0.875rem;
   }
-  
+
   .consulting__subtitle--orange {
     font-size: 0.75rem;
     color: rgba(255, 255, 255, 0.8);
   }
-  
+
   .consulting__card--contact {
     margin-top: 1.875rem;
   }
-  
+
   .consulting__card--orange::before,
   .consulting__card--green::before {
     width: 0.25rem;
   }
-  
+
   .consulting__card:hover::before,
   .consulting__card:focus-visible::before {
     width: 0.375rem;
   }
-  
+
   .consulting__whatsapp-btn {
     padding: 0.5rem 1.25rem;
     padding-left: 1.75rem;
     font-size: 0.8125rem;
     min-height: auto;
   }
-  
+
   .consulting__whatsapp-btn::before {
     width: 0.9375rem;
     height: 0.9375rem;
     left: 0.75rem;
   }
-  
+
   .footer {
     margin-top: 2.1875rem;
   }
-  
+
   .footer img {
     display: block;
     width: 75px;
@@ -1337,17 +1347,21 @@ body {
     z-index: -1;
     opacity: 0.3;
   }
-  
+
   .footer__title {
     font-size: 0.9375rem;
   }
-  
+
   .footer__title-highlight {
     font-size: 0.8125rem;
   }
-  
+
   .footer__copyright {
     font-size: 0.8125rem;
+  }
+
+  .footer__copyright strong {
+    color: var(--primary-orange);
   }
 }
 
@@ -1390,24 +1404,67 @@ body {
   body {
     background: white;
     color: black;
+    padding: 0;
   }
-  
+
   .container {
     box-shadow: none;
     border: 1px solid #ccc;
+    max-width: 100%;
   }
-  
+
   .header__social,
   .consulting__whatsapp-btn,
-  .footer img {
-    display: none;
+  .footer img,
+  .skip-link,
+  .visually-hidden {
+    display: none !important;
   }
-  
-  a {
-    text-decoration: underline;
-  }
-  
-  a[href]:after {
+
+  /* Mostrar URLs importantes */
+  a[href^="http"]:after {
     content: " (" attr(href) ")";
+    font-size: 0.8em;
+    font-weight: normal;
+  }
+
+  a[href^="mailto"]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    font-weight: normal;
+  }
+
+  a[href^="tel"]:after {
+    content: "";
+  }
+
+  /* Adicionar informações de contato no rodapé */
+  .footer:after {
+    content: "Contato: +55 (82) 98701-2399 | clodoaldo@anywhereservice.com.br | Atendimento em Alagoas e Pernambuco";
+    display: block;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ccc;
+    font-size: 0.875rem;
+  }
+
+  /* Quebras de página apropriadas */
+  .header {
+    page-break-after: avoid;
+  }
+
+  .consulting__card {
+    page-break-inside: avoid;
+  }
+
+  /* Forçar cores de impressão */
+  .header {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background-color: var(--primary-blue) !important;
+  }
+
+  .services__item {
+    border: 1px solid var(--primary-green);
   }
 }
