@@ -17,6 +17,20 @@
   --mid-text: #666666;
   --light-text: #ffffff;
   --border-color: #e5e5e5;
+  
+  /* Cores de acessibilidade com melhor contraste */
+  --text-on-blue: #ffffff;
+  --text-on-orange: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.9);
+  
+  /* Tamanhos mínimos para acessibilidade */
+  --min-font-size: 0.75rem; /* 12px mínimo */
+  --min-touch-target: 2.75rem; /* 44px mínimo */
+  
+  /* Focus styles */
+  --focus-color: #0066cc;
+  --focus-outline: 0.1875rem solid var(--focus-color);
+  --focus-offset: 0.125rem;
 }
 
 /* =================================
@@ -25,19 +39,31 @@
 
 @keyframes fadeDown {
   from {
+    opacity: 0;
     transform: translateY(-1.25rem);
   }
   to {
+    opacity: 1;
     transform: translateY(0);
   }
 }
 
+/* Respeitar preferências de movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* =================================
-   Estilos Base e Layout
+   Estilos Base - Mobile First (320px)
 ================================= */
 
 html {
   font-size: 16px;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -46,89 +72,68 @@ body {
   color: var(--dark-text);
   min-height: 100vh;
   display: flex;
-  padding: 2.5rem 0;
+  padding: 1.25rem 0;
   flex-direction: column;
   align-items: center;
   position: relative;
   line-height: 1.6;
+  touch-action: manipulation;
+}
+
+/* Focus visível para navegação por teclado */
+:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
+  border-radius: 0.25rem;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
 }
 
 .container {
-  max-width: 32.5rem;
-  width: 90%;
+  max-width: calc(100% - 1rem);
+  width: 100%;
   background-color: white;
-  border-radius: 0.75rem;
-  padding: 0 0 1.875rem 0;
+  border-radius: 0.5rem;
+  padding: 0 0 1rem 0;
   box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.08);
   position: relative;
   z-index: 1;
   border: 0.0625rem solid var(--border-color);
   overflow: hidden;
   animation: fadeDown 1s ease forwards;
+  margin: 0 auto;
 }
 
 /* =================================
-   Header e Navegação
+   Header - Mobile First (320px)
 ================================= */
 
 .header {
   background-color: var(--primary-blue);
   display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
   position: relative;
-  padding: 1.5625rem 1.875rem;
+  padding: 1rem;
   color: white;
-}
-
-.header__title {
-  color: var(--light-text);
-  margin-bottom: 0.9375rem;
-  text-transform: uppercase;
-}
-
-.header__title-highlight {
-  color: var(--primary-orange);
-  font-size: 1.375rem;
-  text-transform: capitalize;
-}
-
-.header__subtitle {
-  color: var(--light-text);
-  font-size: 0.75rem;
-  position: relative;
-  margin: 0 0 0.5rem 1.125rem;
-}
-
-.header__subtitle::before {
-  content: "";
-  width: 0.9375rem;
-  height: 0.9375rem;
-  background-image: url("../icons/summer_travel_holidays_vacation_suitcase_luggage_icon_148873.svg");
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: -1.125rem;
-  display: inline-block;
-  filter: brightness(0) invert(1);
-}
-
-.header__description {
-  color: var(--light-text);
-  font-size: 0.75rem;
-  opacity: 0.8;
 }
 
 .header__logo {
   border: 0.1875rem solid #fff;
-  width: 5.625rem;
-  height: 5.625rem;
+  width: 4.5rem;
+  height: 4.5rem;
   flex-shrink: 0;
   border-radius: 0.75rem;
-  margin-right: 1.5625rem;
+  margin-right: 0;
+  margin-bottom: 0.625rem;
   position: relative;
   background-image: url("../img/logo.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: var(--primary-blue);
 }
 
 .header__icon {
@@ -137,8 +142,8 @@ body {
   right: -0.375rem;
   border-radius: 50%;
   border: 0.125rem solid white;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.125rem;
+  height: 1.125rem;
   background-color: var(--primary-green);
   display: flex;
   justify-content: center;
@@ -147,64 +152,130 @@ body {
 }
 
 .header__icon-img {
-  width: 1.125rem;
-  height: 1.125rem;
+  width: 0.75rem;
+  height: 0.75rem;
   vertical-align: middle;
+}
+
+.header__title {
+  color: var(--text-on-blue);
+  margin-bottom: 0.375rem;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.header__title-highlight {
+  color: var(--primary-orange);
+  font-size: 0.75rem;
+  text-transform: capitalize;
+  margin-left: 0.3125rem;
+}
+
+.header__subtitle {
+  color: var(--text-on-blue);
+  font-size: 0.625rem;
+  position: relative;
+  margin: 0 0 0.375rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.375rem;
+  font-weight: 500;
+}
+
+.header__subtitle::before {
+  content: "";
+  width: 0.75rem;
+  height: 0.75rem;
+  background-image: url("../icons/summer_travel_holidays_vacation_suitcase_luggage_icon_148873.svg");
+  display: inline-block;
+  filter: brightness(0) invert(1);
+  flex-shrink: 0;
+}
+
+.header__description {
+  color: var(--text-muted);
+  font-size: 0.625rem;
+  max-width: 100%;
+  word-wrap: break-word;
+  padding: 0 0.5rem;
+  line-height: 1.4;
 }
 
 .header__social {
   display: flex;
-  margin-top: 1.25rem;
-  gap: 0.9375rem;
-  justify-content: end;
+  margin-top: 0.875rem;
+  gap: 0.375rem;
+  justify-content: center;
   align-items: center;
 }
 
+.header__social a {
+  width: 1.75rem;
+  height: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  padding: 0.25rem;
+}
+
+.header__social a:hover,
+.header__social a:focus-visible {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 .header__social-icon {
-  width: 1.5625rem;
-  height: 1.5625rem;
+  width: 1rem;
+  height: 1rem;
   filter: brightness(0) invert(1);
   transition: all 0.2s ease;
   vertical-align: middle;
 }
 
-.header__social-icon:hover {
+.header__social a:hover .header__social-icon {
   filter: brightness(1) invert(0.5) sepia(1) saturate(5) hue-rotate(-20deg);
   transform: translateY(-0.125rem);
 }
 
 /* =================================
-   Lista de Serviços
+   Serviços - Mobile First (320px)
 ================================= */
 
 .services__list {
   display: flex;
   list-style-type: none;
-  gap: 0.3rem;
+  gap: 0.1875rem;
   color: var(--primary-green);
-  padding: 1.875rem 0.625rem 0;
+  padding: 0.875rem 0.25rem 0;
   justify-content: center;
-  flex-shrink: 0;
+  flex-wrap: wrap;
   align-items: center;
 }
 
 .services__item {
   background-color: rgba(76, 175, 80, 0.1);
-  padding: 0.25rem 0.5rem;
+  padding: 0.1875rem 0.3125rem;
   border-radius: 1.25rem;
-  font-size: 0.75rem;
+  font-size: 0.625rem;
   font-weight: 500;
   transition: all 0.3s ease;
   flex-shrink: 0;
+  min-height: 1.75rem;
+  display: flex;
+  align-items: center;
 }
 
-.services__item:hover {
+.services__item:hover,
+.services__item:focus-within {
   background-color: rgba(76, 175, 80, 0.2);
   transform: translateY(-1px);
 }
 
 /* =================================
-   Cards de Consultoria
+   Cards de Consultoria - Mobile First (320px)
 ================================= */
 
 .consulting__list {
@@ -214,25 +285,30 @@ body {
 .consulting__card {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin: 0.9375rem 1.875rem;
+  gap: 0.625rem;
+  margin: 0.5rem 0.75rem;
   border: 0.0625rem solid var(--border-color);
   border-radius: 0.625rem;
-  padding: 1rem 1.25rem;
+  padding: 0.75rem 0.875rem;
   transition: all 0.3s ease;
   font-weight: normal;
-  font-size: 0.9375rem;
+  font-size: 0.75rem;
   position: relative;
   overflow: hidden;
+  min-height: 3rem;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
 }
 
 .consulting__icon {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 0.875rem;
+  height: 0.875rem;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: auto 0;
+  flex-shrink: 0;
 }
 
 .consulting__icon img {
@@ -245,137 +321,160 @@ body {
 .consulting__contact-wrapper {
   display: flex;
   align-items: center;
-  gap: 0.9375rem;
+  gap: 0.75rem;
 }
 
 .consulting__card--contact {
   justify-content: space-between;
   background-color: rgba(102, 102, 102, 0.1);
-  margin-top: 1.875rem;
+  margin-top: 1rem;
+  cursor: default;
 }
 
 .consulting__whatsapp-btn {
-  padding: 0.5rem 1.25rem;
-  padding-left: 1.75rem;
+  padding: 0.5rem 0.75rem;
+  padding-left: 1.5rem;
   border-radius: 0.3125rem;
   background-color: var(--primary-green);
   border: none;
-  font-size: 0.8125rem;
+  font-size: 0.625rem;
   position: relative;
   transition: background-color 0.3s ease;
   cursor: pointer;
+  min-height: 2rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+  color: var(--text-on-orange);
+  font-weight: 500;
 }
 
-.consulting__whatsapp-btn:hover {
+.consulting__whatsapp-btn:hover,
+.consulting__whatsapp-btn:focus-visible {
   background-color: rgb(64, 150, 67);
+  transform: translateY(-1px);
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
 }
 
 .consulting__whatsapp-btn::before {
   content: "";
-  width: 0.9375rem;
-  height: 0.9375rem;
+  width: 0.75rem;
+  height: 0.75rem;
   background-image: url("../icons/message-circle-2.svg");
   background-size: cover;
   display: inline-block;
   position: absolute;
   top: 50%;
-  left: 0.75rem;
+  left: 0.375rem;
   transform: translateY(-50%);
 }
 
-.consulting__whatsapp-btn a {
+.consulting__phone-link {
+  color: inherit;
   text-decoration: none;
-  color: var(--light-text);
-  display: inline-block;
-  margin-left: 0.625rem;
+  transition: color 0.2s ease;
+}
+
+.consulting__phone-link:hover,
+.consulting__phone-link:focus-visible {
+  color: var(--primary-green);
+  text-decoration: underline;
 }
 
 .consulting__card--orange {
   background-color: var(--primary-orange);
   border: 0.0625rem solid var(--primary-orange);
-  color: var(--light-text);
-  cursor: pointer;
+  color: var(--text-on-orange);
 }
 
 .consulting__card--green {
   background-color: var(--light-bg);
   border: 0.0625rem solid var(--border-color);
   color: var(--dark-text);
-  cursor: pointer;
 }
 
-.consulting__card--orange::before {
-  content: "";
-  position: absolute;
-  background-color: var(--light-bg);
-  width: 0.25rem;
-  height: 100%;
-  left: 0;
-  top: 0;
-  transition: all 0.3s ease;
-}
-
+.consulting__card--orange::before,
 .consulting__card--green::before {
   content: "";
   position: absolute;
-  background-color: var(--primary-green);
-  width: 0.25rem;
+  width: 0.1875rem;
   height: 100%;
   left: 0;
   top: 0;
   transition: all 0.3s ease;
 }
 
+.consulting__card--orange::before {
+  background-color: var(--light-bg);
+}
+
+.consulting__card--green::before {
+  background-color: var(--primary-green);
+}
+
 .consulting__card--orange:hover,
-.consulting__card--green:hover {
+.consulting__card--green:hover,
+.consulting__card--orange:focus-visible,
+.consulting__card--green:focus-visible {
   transform: translateY(-0.125rem);
   box-shadow: 0 0.3125rem 0.9375rem rgba(0, 0, 0, 0.08);
 }
 
-.consulting__card--orange:hover {
+.consulting__card--orange:hover,
+.consulting__card--orange:focus-visible {
   background-color: #e05a1c;
 }
 
-.consulting__card--green:hover {
+.consulting__card--green:hover,
+.consulting__card--green:focus-visible {
   border-color: rgba(76, 175, 80, 1);
   background-color: rgba(76, 175, 80, 0.1);
 }
 
-.consulting__card:hover::before {
-  width: 0.375rem;
+.consulting__card:hover::before,
+.consulting__card:focus-visible::before {
+  width: 0.3125rem;
 }
 
 .consulting__title {
-  font-size: 0.9375rem;
-  font-weight: normal;
+  font-size: 0.75rem;
+  font-weight: 500;
 }
 
 .consulting__title--contact {
-  font-size: 0.75rem;
+  font-size: 0.625rem;
   color: var(--mid-text);
   font-weight: normal;
 }
 
 .consulting__subtitle {
-  font-size: 0.75rem;
+  font-size: 0.625rem;
   font-weight: normal;
   color: var(--mid-text);
+  display: -webkit-box;
+  display: box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.3;
 }
 
 .consulting__subtitle--contact {
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: var(--dark-text);
   font-weight: normal;
 }
 
 .consulting__subtitle--orange {
   font-weight: normal;
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.625rem;
+  color: var(--text-muted);
 }
 
 /* =================================
-   Footer
+   Footer - Mobile First (320px)
 ================================= */
 
 .footer {
@@ -383,569 +482,932 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: 2.1875rem;
+  margin-top: 0.875rem;
   position: relative;
   perspective: 800px;
   z-index: 0;
+  padding: 0 1rem;
 }
 
 .footer img {
-  width: 75px;
-  height: 75px;
-  position: absolute;
-  left: 20px;
-  top: -20px;
-  transform: rotateX(20deg);
-  z-index: -1;
-  opacity: 0.3;
-  transform: translateY(10%);
+  display: none;
 }
 
 .footer__title {
-  font-size: 0.9375rem;
+  font-size: 0.625rem;
   color: var(--primary-orange);
   text-transform: uppercase;
+  margin-bottom: 0.25rem;
 }
 
 .footer__title-highlight {
   color: var(--dark-text);
   text-transform: capitalize;
-  font-size: 0.8125rem;
+  font-size: 0.625rem;
   font-weight: bold;
 }
 
 .footer__copyright {
-  font-size: 0.8125rem;
+  font-size: 0.625rem;
   color: var(--mid-text);
   font-weight: normal;
+  max-width: 100%;
+  word-wrap: break-word;
+  line-height: 1.4;
 }
 
 /* =================================
-   Media Queries - Responsividade
+   Media Queries - Progressive Enhancement
 ================================= */
 
-@media (max-width: 30rem) {
-  .container {
-    max-width: 99vw;
-    border-radius: 0.65rem;
-    padding: 0 0 1.4rem 0;
-  }
-
-  .header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .header__logo {
-    width: 5rem;
-    height: 5rem;
-    margin-right: 0;
-    margin-bottom: 0.7rem;
-  }
-
-  .header__icon {
-    width: 1.4rem;
-    height: 1.4rem;
-  }
-
-  .header__icon-img {
-    width: 1.1rem;
-    height: 1.1rem;
-  }
-
-  .header__title {
-    font-size: 1.1rem;
-    margin-bottom: 0.7rem;
-  }
-
-  .header__title-highlight {
-    font-size: 1.1rem;
-  }
-
-  .header__subtitle {
-    font-size: 0.9rem;
-    margin-left: 0.7rem;
-  }
-
-  .header__subtitle::before {
-    top: 50%;
-    left: 1.5rem;
-    transform: translateY(-50%);
-  }
-
-  .header__social {
-    gap: 0.8rem;
+/* 375px - iPhone SE, 8, X, 11 Pro */
+@media (min-width: 23.4375rem) {
+  body {
+    padding: 1.5rem 0;
     justify-content: center;
   }
-
+  
+  .container {
+    border-radius: 0.625rem;
+    padding: 0 0 1.125rem 0;
+  }
+  
+  .header {
+    padding: 1.125rem 1.125rem;
+  }
+  
+  .header__logo {
+    width: 4.75rem;
+    height: 4.75rem;
+    margin-bottom: 0.6875rem;
+  }
+  
+  .header__icon {
+    width: 1.1875rem;
+    height: 1.1875rem;
+  }
+  
+  .header__icon-img {
+    width: 0.8125rem;
+    height: 0.8125rem;
+  }
+  
+  .header__title,
+  .header__title-highlight {
+    font-size: 0.8125rem;
+    margin-bottom: 0.4375rem;
+    margin-left: 0.3125rem;
+  }
+  
+  .header__subtitle {
+    font-size: 0.6875rem;
+    margin-bottom: 0.4375rem;
+    gap: 0.4375rem;
+  }
+  
+  .header__subtitle::before {
+    width: 0.8125rem;
+    height: 0.8125rem;
+  }
+  
+  .header__description {
+    font-size: 0.6875rem;
+    padding: 0 0.625rem;
+  }
+  
+  .header__social {
+    margin-top: 0.9375rem;
+    gap: 0.4375rem;
+  }
+  
+  .header__social a {
+    width: 1.875rem;
+    height: 1.875rem;
+  }
+  
   .header__social-icon {
-    width: 1.4rem;
-    height: 1.4rem;
+    width: 1.125rem;
+    height: 1.125rem;
   }
-
+  
   .services__list {
-    padding: 1.3rem 0.4rem 0;
-    gap: 0.25rem;
+    padding: 0.9375rem 0.3125rem 0;
+    gap: 0.21875rem;
   }
-
+  
   .services__item {
-    padding: 0.2rem 0.4rem;
-    font-size: 0.7rem;
+    padding: 0.21875rem 0.34375rem;
+    font-size: 0.6875rem;
+    min-height: 1.875rem;
   }
-
+  
   .consulting__card {
-    margin: 0.7rem 1rem;
-    padding: 0.9rem 1rem;
-    font-size: 0.85rem;
-    gap: 0.8rem;
+    margin: 0.5625rem 0.875rem;
+    padding: 0.8125rem 0.9375rem;
+    font-size: 0.8125rem;
+    gap: 0.6875rem;
   }
-
+  
   .consulting__icon {
-    width: 1.4rem;
-    height: 1.4rem;
+    width: 0.9375rem;
+    height: 0.9375rem;
   }
-
+  
   .consulting__title {
-    font-size: 0.95rem;
+    font-size: 0.8125rem;
   }
-
+  
+  .consulting__title--contact {
+    font-size: 0.6875rem;
+  }
+  
+  .consulting__subtitle {
+    font-size: 0.6875rem;
+  }
+  
+  .consulting__subtitle--contact {
+    font-size: 0.8125rem;
+  }
+  
+  .consulting__subtitle--orange {
+    font-size: 0.6875rem;
+  }
+  
   .consulting__card--contact {
-    margin-top: 1.7rem;
+    margin-top: 1.0625rem;
   }
-
+  
   .consulting__whatsapp-btn {
-    padding: 0.48rem 1rem;
-    font-size: 0.72rem;
+    padding: 0.5625rem 0.8125rem;
+    padding-left: 1.625rem;
+    font-size: 0.6875rem;
+    min-height: 2.125rem;
   }
-
+  
   .consulting__whatsapp-btn::before {
-    top: 50%;
-    left: 0.5rem;
-    transform: translateY(-50%);
+    width: 0.8125rem;
+    height: 0.8125rem;
+    left: 0.4375rem;
   }
-
+  
   .footer {
-    margin-top: 1.5rem;
+    margin-top: 0.9375rem;
   }
-
-  .footer img {
-    display: none;
-  }
-
+  
   .footer__title {
-    font-size: 1rem;
+    font-size: 0.6875rem;
   }
-
+  
   .footer__title-highlight,
   .footer__copyright {
-    font-size: 0.9rem;
+    font-size: 0.6875rem;
   }
 }
 
-@media (max-width: 27.5rem) {
-  .header__title,
-  .header__title-highlight {
-    font-size: 1.075rem;
+/* 393px - Pixel 7, 8 */
+@media (min-width: 24.5625rem) {
+  body {
+    justify-content: center;
   }
-
+  
+  .header {
+    padding: 1.1875rem 1.1875rem;
+  }
+  
+  .header__logo {
+    width: 4.875rem;
+    height: 4.875rem;
+  }
+  
   .header__icon {
-    width: 1.375rem;
-    height: 1.375rem;
+    width: 1.25rem;
+    height: 1.25rem;
   }
-
-  .header__icon-img {
-    width: 1.075rem;
-    height: 1.075rem;
-  }
-
-  .header__subtitle {
-    font-size: 0.875rem;
-  }
-
-  .header__subtitle::before {
-    top: 50%;
-    left: 0.625rem;
-    transform: translateY(-50%);
-  }
-
-  .header__social {
-    gap: 0.775rem;
-  }
-
-  .header__social-icon {
-    width: 1.375rem;
-    height: 1.375rem;
-  }
-
-  .services__list {
-    padding: 1.25rem 0.4rem 0;
-    gap: 0.275rem;
-  }
-
-  .services__item {
-    padding: 0.2rem 0.385rem;
-    font-size: 0.695rem;
-  }
-
-  .consulting__card {
-    font-size: 0.835rem;
-  }
-
-  .consulting__icon {
-    width: 1.375rem;
-    height: 1.375rem;
-  }
-
-  .consulting__title {
-    font-size: 0.925rem;
-  }
-
-  .consulting__subtitle {
-    font-size: 0.735rem;
-  }
-
-  .consulting__whatsapp-btn::before {
-    top: 50%;
-    left: 0.4375rem;
-    transform: translateY(-50%);
-  }
-
-  .footer__copyright {
-    font-size: 0.75rem;
-  }
-
-}
-
-@media (max-width: 26.875rem) {
-  .header__title,
-  .header__title-highlight {
-    font-size: 1.05rem;
-  }
-
-  .header__icon {
-    width: 1.35rem;
-    height: 1.35rem;
-  }
-
-  .header__icon-img {
-    width: 1.05rem;
-    height: 1.05rem;
-  }
-
-  .header__subtitle {
-    font-size: 0.85rem;
-  }
-
-  .header__subtitle::before {
-    top: 50%;
-    left: 10px;
-    transform: translateY(-50%);
-  }
-
-  .header__social {
-    gap: 0.75rem;
-  }
-
-  .header__social-icon {
-    width: 1.35rem;
-    height: 1.35rem;
-  }
-
-  .services__list {
-    padding: 1.2rem 0.4rem 0;
-  }
-
-  .services__item {
-    padding: 0.2rem 0.375rem;
-    font-size: 0.685rem;
-  }
-
-  .consulting__card {
-    font-size: 0.825rem;
-  }
-
-  .consulting__icon {
-    width: 1.35rem;
-    height: 1.35rem;
-  }
-
-  .consulting__title {
-    font-size: 0.9rem;
-  }
-
-  .consulting__subtitle {
-    font-size: 0.725rem;
-  }
-}
-
-@media (max-width: 25.875rem) {
-  .header__title {
-    font-size: 1rem;
-  }
-
-  .header__icon {
-    width: 1.375rem;
-    height: 1.375rem;
-  }
-
+  
   .header__icon-img {
     width: 0.875rem;
     height: 0.875rem;
   }
-
+  
+  .header__title,
+  .header__title-highlight {
+    font-size: 0.875rem;
+    margin-left: 0.3125rem;
+  }
+  
   .header__subtitle {
-    font-size: 0.8rem;
+    font-size: 0.71875rem;
   }
-
-  .header__subtitle::before {
-    top: 50%;
-    left: 0.625rem;
-    transform: translateY(-50%);
-  }
-
-  .container {
-    padding: 0 0 1.2rem 0;
-  }
-
-  .header__social {
-    gap: 0.7rem;
-  }
-
-  .header__social-icon {
-    width: 1.3rem;
-    height: 1.3rem;
-  }
-
-  .consulting__card {
-    font-size: 0.8rem;
-  }
-
-  .consulting__icon {
-    width: 1.3rem;
-    height: 1.3rem;
-  }
-
-  .consulting__title {
-    font-size: 0.85rem;
-  }
-
-  .consulting__subtitle {
-    font-size: 0.7rem;
-  }
-
-  .footer__copyright {
-    font-size: 0.75rem;
-  }
-
-}
-
-@media (max-width: 25.125rem) {
+  
   .header__description {
-    font-size: 0.725rem;
+    font-size: 0.71875rem;
   }
-
-  .header__subtitle::before {
-    top: 50%;
-    left: 0.375rem;
-    transform: translateY(-50%);
+  
+  .header__social a {
+    width: 2rem;
+    height: 2rem;
   }
-
-  .footer__copyright {
-    font-size: 0.7rem;
+  
+  .header__social-icon {
+    width: 1.1875rem;
+    height: 1.1875rem;
+  }
+  
+  .services__item {
+    font-size: 0.71875rem;
+  }
+  
+  .consulting__card {
+    font-size: 0.84375rem;
+  }
+  
+  .consulting__title {
+    font-size: 0.84375rem;
   }
 }
 
-@media (max-width: 25rem) {
-  .header__icon {
-    width: 1.3rem;
-    height: 1.3rem;
+/* 400px */
+@media (min-width: 25rem) {
+  body {
+    padding: 1.75rem 0;
+    justify-content: center;
   }
-
+  
+  .container {
+    padding: 0 0 1.25rem 0;
+  }
+  
+  .header {
+    padding: 1.25rem 1.25rem;
+  }
+  
+  .header__logo {
+    width: 5rem;
+    height: 5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .header__icon {
+    width: 1.3125rem;
+    height: 1.3125rem;
+  }
+  
   .header__icon-img {
+    width: 0.9375rem;
+    height: 0.9375rem;
+  }
+  
+  .header__title,
+  .header__title-highlight {
+    font-size: 0.9375rem;
+    margin-bottom: 0.5rem;
+    margin-left: 0.3125rem;
+  }
+  
+  .header__subtitle {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+    gap: 0.5rem;
+  }
+  
+  .header__subtitle::before {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+  
+  .header__description {
+    font-size: 0.75rem;
+    padding: 0 0.75rem;
+  }
+  
+  .header__social {
+    margin-top: 1rem;
+    gap: 0.5rem;
+  }
+  
+  .header__social a {
+    width: 2.125rem;
+    height: 2.125rem;
+  }
+  
+  .header__social-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  
+  .services__list {
+    padding: 1rem 0.375rem 0;
+    gap: 0.25rem;
+  }
+  
+  .services__item {
+    padding: 0.25rem 0.375rem;
+    font-size: 0.75rem;
+    min-height: 2rem;
+  }
+  
+  .consulting__card {
+    margin: 0.625rem 1rem;
+    padding: 0.875rem 1rem;
+    font-size: 0.875rem;
+    gap: 0.75rem;
+    min-height: 3.25rem;
+  }
+  
+  .consulting__icon {
     width: 1rem;
     height: 1rem;
   }
-
-  .header__title {
-    font-size: 0.95rem;
-    margin-bottom: 0.5rem;
+  
+  .consulting__title {
+    font-size: 0.875rem;
   }
-
-  .header__title-highlight {
-    font-size: 0.95rem;
+  
+  .consulting__title--contact {
+    font-size: 0.71875rem;
   }
-
-  .header__subtitle {
-    font-size: 0.75rem;
-    margin-left: 0.5rem;
+  
+  .consulting__subtitle {
+    font-size: 0.71875rem;
   }
-
-  .header__subtitle::before {
-    top: 50%;
-    left: 0.75rem;
-    transform: translateY(-50%);
+  
+  .consulting__subtitle--contact {
+    font-size: 0.84375rem;
   }
-
-  .header__social {
-    gap: 0.6rem;
+  
+  .consulting__subtitle--orange {
+    font-size: 0.71875rem;
   }
-
-  .header__social-icon {
-    width: 1.2rem;
-    height: 1.2rem;
-  }
-
-  .services__list {
-    padding: 1rem 0.3rem 0;
-    gap: 0.2rem;
-  }
-
-  .services__item {
-    padding: 0.2rem 0.35rem;
-    font-size: 0.65rem;
-  }
-
+  
   .consulting__card--contact {
-    margin-top: 1.25rem;
+    margin-top: 1.125rem;
   }
-
+  
   .consulting__whatsapp-btn {
-    padding: 0.525rem 0.95rem;
-    font-size: 0.65rem;
+    padding: 0.625rem 0.875rem;
+    padding-left: 1.75rem;
+    font-size: 0.71875rem;
+    min-height: 2.25rem;
   }
-
+  
+  .consulting__whatsapp-btn::before {
+    width: 0.875rem;
+    height: 0.875rem;
+    left: 0.5rem;
+  }
+  
   .footer {
     margin-top: 1rem;
   }
-
+  
   .footer__title {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
-
+  
   .footer__title-highlight,
   .footer__copyright {
-    font-size: 0.7rem;
+    font-size: 0.71875rem;
   }
 }
 
-@media (max-width: 23.4375rem) {
-  .header__title,
-  .header__title-highlight {
-    font-size: 0.85rem;
+/* 414px - iPhone 11, XR, 12, 13, 14 */
+@media (min-width: 25.875rem) {
+  body {
+    justify-content: center;
   }
-
-  .header__subtitle {
-    font-size: 0.75rem;
+  
+  .header {
+    padding: 1.3125rem 1.3125rem;
   }
-
-  .header__subtitle::before {
-    top: 50%;
-    left: 0.125rem;
-    transform: translateY(-50%);
-  }
-
-  .header__description {
-    font-size: 0.6625rem;
-  }
-
-  .header__social {
-    gap: 0.5rem;
-  }
-
-  .header__social-icon {
-    width: 1.1rem;
-    height: 1.1rem;
-  }
-
-  .consulting__card {
-    font-size: 0.7rem;
-  }
-
-  .consulting__icon {
-    width: 1.1rem;
-    height: 1.1rem;
-  }
-
-  .consulting__title {
-    font-size: 0.75rem;
-  }
-
-  .consulting__subtitle {
-    font-size: 0.65rem;
-  }
-
-  .consulting__subtitle--contact {
-    font-size: 0.7438rem;
-  }
-}
-
-@media (max-width: 20rem) {
+  
   .header__icon {
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 1.375rem;
+    height: 1.375rem;
   }
-
+  
   .header__icon-img {
-    width: 0.9rem;
-    height: 0.9rem;
+    width: 1rem;
+    height: 1rem;
   }
-
+  
   .header__title,
   .header__title-highlight {
+    font-size: 1rem;
+    margin-left: 0.3125rem;
+  }
+  
+  .header__subtitle {
+    font-size: 0.8125rem;
+  }
+  
+  .header__subtitle::before {
+    width: 0.9375rem;
+    height: 0.9375rem;
+  }
+  
+  .header__description {
+    font-size: 0.78125rem;
+  }
+  
+  .header__social {
+    gap: 0.5625rem;
+  }
+  
+  .header__social a {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+  
+  .header__social-icon {
+    width: 1.3125rem;
+    height: 1.3125rem;
+  }
+  
+  .services__item {
+    font-size: 0.78125rem;
+  }
+  
+  .consulting__card {
+    font-size: 0.90625rem;
+  }
+  
+  .consulting__icon {
+    width: 1.0625rem;
+    height: 1.0625rem;
+  }
+  
+  .consulting__title {
+    font-size: 0.90625rem;
+  }
+  
+  .consulting__subtitle {
     font-size: 0.75rem;
   }
+  
+  .footer__copyright {
+    font-size: 0.75rem;
+  }
+}
 
+/* 430px */
+@media (min-width: 26.875rem) {
+  body {
+    justify-content: center;
+  }
+  
+  .header {
+    padding: 1.375rem 1.375rem;
+  }
+  
+  .header__logo {
+    width: 5.125rem;
+    height: 5.125rem;
+  }
+  
+  .header__title,
+  .header__title-highlight {
+    font-size: 1.0625rem;
+    margin-left: 0.3125rem;
+  }
+  
   .header__subtitle {
-    font-size: 0.65rem;
+    font-size: 0.84375rem;
   }
-
-  .header__subtitle::before {
-    top: 50%;
-    left: -0.4375rem;
-    transform: translateY(-50%);
-  }
-
+  
   .header__description {
-    font-size: .5437rem;
+    font-size: 0.8125rem;
   }
-
+  
   .header__social {
-    gap: 0.4rem;
+    gap: 0.625rem;
   }
-
+  
   .header__social-icon {
-    width: 1rem;
-    height: 1rem;
+    width: 1.375rem;
+    height: 1.375rem;
   }
-
+  
+  .services__list {
+    padding: 1.125rem 0.4375rem 0;
+    gap: 0.28125rem;
+  }
+  
+  .services__item {
+    padding: 0.28125rem 0.40625rem;
+    font-size: 0.8125rem;
+  }
+  
   .consulting__card {
-    font-size: 0.6rem;
+    margin: 0.6875rem 1.125rem;
+    padding: 0.9375rem 1.0625rem;
+    font-size: 0.9375rem;
   }
-
+  
   .consulting__icon {
-    width: 1rem;
-    height: 1rem;
+    width: 1.125rem;
+    height: 1.125rem;
   }
-
+  
   .consulting__title {
-    font-size: 0.65rem;
+    font-size: 0.9375rem;
   }
-
+  
+  .consulting__title--contact {
+    font-size: 0.75rem;
+  }
+  
   .consulting__subtitle {
-    font-size: 0.6rem;
+    font-size: 0.78125rem;
   }
-
-  .consulting__subtitle--contact {
-    font-size: 0.5125rem;
+  
+  .consulting__card--contact {
+    margin-top: 1.25rem;
   }
-
+  
   .footer__title {
-    font-size: 0.65rem;
+    font-size: 0.8125rem;
   }
-
+  
   .footer__title-highlight,
   .footer__copyright {
-    font-size: 0.6rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* 440px */
+@media (min-width: 27.5rem) {
+  body {
+    padding: 2rem 0;
+    justify-content: center;
+  }
+  
+  .container {
+    border-radius: 0.6875rem;
+    padding: 0 0 1.375rem 0;
+  }
+  
+  .header {
+    padding: 1.4375rem 1.4375rem;
+  }
+  
+  .header__logo {
+    width: 5.25rem;
+    height: 5.25rem;
+  }
+  
+  .header__icon {
+    width: 1.4375rem;
+    height: 1.4375rem;
+  }
+  
+  .header__icon-img {
+    width: 1.0625rem;
+    height: 1.0625rem;
+  }
+  
+  .header__title,
+  .header__title-highlight {
+    font-size: 1.125rem;
+    margin-left: 0.3125rem;
+  }
+  
+  .header__subtitle {
+    font-size: 0.875rem;
+  }
+  
+  .header__description {
+    font-size: 0.84375rem;
+  }
+  
+  .header__social {
+    margin-top: 1.125rem;
+    gap: 0.6875rem;
+  }
+  
+  .header__social a {
+    width: 2.375rem;
+    height: 2.375rem;
+  }
+  
+  .header__social-icon {
+    width: 1.4375rem;
+    height: 1.4375rem;
+  }
+  
+  .services__list {
+    padding: 1.1875rem 0.5rem 0;
+    gap: 0.3125rem;
+  }
+  
+  .services__item {
+    padding: 0.3125rem 0.4375rem;
+    font-size: 0.84375rem;
+    min-height: 2.125rem;
+  }
+  
+  .consulting__card {
+    margin: 0.75rem 1.25rem;
+    padding: 1rem 1.125rem;
+    font-size: 0.96875rem;
+    gap: 0.8125rem;
+  }
+  
+  .consulting__icon {
+    width: 1.1875rem;
+    height: 1.1875rem;
+  }
+  
+  .consulting__title {
+    font-size: 0.96875rem;
+  }
+  
+  .consulting__title--contact {
+    font-size: 0.75rem;
+  }
+  
+  .consulting__subtitle {
+    font-size: 0.8125rem;
+  }
+  
+  .consulting__card--contact {
+    margin-top: 1.375rem;
+  }
+  
+  .consulting__whatsapp-btn {
+    padding: 0.6875rem 0.9375rem;
+    padding-left: 1.875rem;
+    font-size: 0.75rem;
+    min-height: 2.375rem;
+  }
+  
+  .consulting__whatsapp-btn::before {
+    width: 0.9375rem;
+    height: 0.9375rem;
+    left: 0.5625rem;
+  }
+  
+  .footer {
+    margin-top: 1.125rem;
+  }
+  
+  .footer__title {
+    font-size: 0.875rem;
+  }
+  
+  .footer__title-highlight,
+  .footer__copyright {
+    font-size: 0.78125rem;
+  }
+}
+
+/* 480px - Tablets e desktop */
+@media (min-width: 30rem) {
+  body {
+    padding: 2.5rem 0;
+    justify-content: center;
+  }
+  
+  .container {
+    max-width: 32.5rem;
+    width: 90%;
+    border-radius: 0.75rem;
+    padding: 0 0 1.875rem 0;
+  }
+  
+  .header {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    padding: 1.5625rem 1.875rem;
+  }
+  
+  .header__logo {
+    width: 5.625rem;
+    height: 5.625rem;
+    margin-right: 1.5625rem;
+    margin-bottom: 0;
+  }
+  
+  .header__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .header__icon-img {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+  
+  .header__title {
+    font-size: 1.375rem;
+    margin-bottom: 0.9375rem;
+  }
+  
+  .header__title-highlight {
+    font-size: 1.375rem;
+    margin-left: 0.3125rem;
+  }
+  
+  .header__subtitle {
+    font-size: 0.75rem;
+    margin: 0 0 0.5rem 1.125rem;
+    display: block;
+    gap: 0;
+    position: relative;
+    padding-left: 0;
+  }
+  
+  .header__subtitle::before {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -1.125rem;
+  }
+  
+  .header__description {
+    font-size: 0.75rem;
+    padding: 0;
+    opacity: 0.8;
+  }
+  
+  .header__social {
+    gap: 0.9375rem;
+    justify-content: flex-end;
+    margin-top: 1.25rem;
+  }
+  
+  .header__social a {
+    width: auto;
+    height: auto;
+    min-width: auto;
+    min-height: auto;
+    padding: 0;
+  }
+  
+  .header__social-icon {
+    width: 1.5625rem;
+    height: 1.5625rem;
+  }
+  
+  .services__list {
+    padding: 1.875rem 0.625rem 0;
+    gap: 0.3rem;
+    flex-wrap: nowrap;
+  }
+  
+  .services__item {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    min-height: auto;
+  }
+  
+  .consulting__card {
+    margin: 0.9375rem 1.875rem;
+    padding: 1rem 1.25rem;
+    font-size: 0.9375rem;
+    gap: 0.75rem;
+    min-height: auto;
+  }
+  
+  .consulting__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .consulting__title {
+    font-size: 0.9375rem;
+  }
+  
+  .consulting__title--contact {
+    font-size: 0.75rem;
+  }
+  
+  .consulting__subtitle {
+    font-size: 0.75rem;
+  }
+  
+  .consulting__subtitle--contact {
+    font-size: 0.875rem;
+  }
+  
+  .consulting__subtitle--orange {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .consulting__card--contact {
+    margin-top: 1.875rem;
+  }
+  
+  .consulting__card--orange::before,
+  .consulting__card--green::before {
+    width: 0.25rem;
+  }
+  
+  .consulting__card:hover::before,
+  .consulting__card:focus-visible::before {
+    width: 0.375rem;
+  }
+  
+  .consulting__whatsapp-btn {
+    padding: 0.5rem 1.25rem;
+    padding-left: 1.75rem;
+    font-size: 0.8125rem;
+    min-height: auto;
+  }
+  
+  .consulting__whatsapp-btn::before {
+    width: 0.9375rem;
+    height: 0.9375rem;
+    left: 0.75rem;
+  }
+  
+  .footer {
+    margin-top: 2.1875rem;
+  }
+  
+  .footer img {
+    display: block;
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    left: 20px;
+    top: -20px;
+    transform: rotateX(20deg) translateY(10%);
+    z-index: -1;
+    opacity: 0.3;
+  }
+  
+  .footer__title {
+    font-size: 0.9375rem;
+  }
+  
+  .footer__title-highlight {
+    font-size: 0.8125rem;
+  }
+  
+  .footer__copyright {
+    font-size: 0.8125rem;
+  }
+}
+
+/* =================================
+   Utilitários de Acessibilidade
+================================= */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary-blue);
+  color: white;
+  padding: 0.5rem;
+  text-decoration: none;
+  border-radius: 0 0 0.25rem 0.25rem;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* =================================
+   Print Styles
+================================= */
+
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .container {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+  
+  .header__social,
+  .consulting__whatsapp-btn,
+  .footer img {
+    display: none;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+  
+  a[href]:after {
+    content: " (" attr(href) ")";
   }
 }

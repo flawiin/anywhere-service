@@ -1,46 +1,72 @@
+<!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Anywhere Service Consultoria</title>
+    <title>Anywhere Service Consultoria - Especialista em Provedores de Internet</title>
     <link rel="icon" type="image/svg+xml" href="./assets/icons/wifi-3.svg" />
-    <meta name="description" content="Anywhere Service Consultoria - Soluções profissionais em consultoria empresarial, gestão de projetos e otimização de processos para sua empresa." />
+    <meta name="description" content="Anywhere Service Consultoria - Soluções profissionais em consultoria empresarial, gestão de projetos e otimização de processos para provedores de internet. Mais de 25 anos de experiência em TI e telecomunicações." />
     <meta name="author" content="FlawinCode" />
     <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.anywhereservice.com.br/" />
+    <meta property="og:title" content="Anywhere Service Consultoria - Especialista em Provedores de Internet" />
+    <meta property="og:description" content="Consultoria especializada para provedores de internet com mais de 25 anos de experiência em TI e telecomunicações." />
+    <meta property="og:image" content="./assets/img/logo.jpeg" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.anywhereservice.com.br/" />
+    <meta property="twitter:title" content="Anywhere Service Consultoria" />
+    <meta property="twitter:description" content="Consultoria especializada para provedores de internet." />
+
+    <!-- Tema para navegadores móveis -->
+    <meta name="theme-color" content="#1e2635" />
+
+    <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ysabeau+Infant:ital,wght@0,1..1000;1,1..1000&display=swap" rel="stylesheet" />
+
+    <!-- CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
+    <!-- Skip to main content link para acessibilidade -->
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
     <div class="container">
-      <header class="header">
-        <figure class="header__logo">
-          <figure class="header__icon">
-            <img src="./assets/icons/wifi-3.svg" alt="Ícone de Wi-Fi" class="header__icon-img" />
-          </figure>
+      <header class="header" role="banner">
+        <figure class="header__logo" role="img" aria-label="Logo da Anywhere Service Consultoria">
+          <div class="header__icon" aria-hidden="true">
+            <img src="./assets/icons/wifi-3.svg" alt="" class="header__icon-img" />
+          </div>
         </figure>
 
         <div class="header__info">
-          <h1 class="header__title">Anywhere Service <span class="header__title-highlight">Consultoria</span></h1>
+          <h1 class="header__title">Anywhere Service<span class="header__title-highlight">Consultoria</span></h1>
           <p class="header__subtitle">Especialista em Provedores de Internet</p>
           <p class="header__description">Com mais de 25 anos de experiência em TI, Backbone e implementação de projetos de telecomunicações em diversas operadoras.</p>
-          <figure class="header__social">
-            <a href="https://facebook.com/anywhereservice" target="_blank" rel="noopener noreferrer">
-              <img src="./assets/icons/Social-01-Facebook-Outline_icon-icons.com_66389.svg" alt="Facebook" class="header__social-icon" />
+          <nav class="header__social" role="navigation" aria-label="Redes sociais">
+            <a href="https://facebook.com/anywhereservice" target="_blank" rel="noopener noreferrer" aria-label="Visite nossa página no Facebook">
+              <img src="./assets/icons/Social-01-Facebook-Outline_icon-icons.com_66389.svg" alt="" class="header__social-icon" aria-hidden="true" />
             </a>
-            <a href="https://instagram.com/anywhereservice" target="_blank" rel="noopener noreferrer">
-              <img src="./assets/icons/Social-32-Instagram-Outline_icon-icons.com_66387.svg" alt="Instagram" class="header__social-icon" />
+            <a href="https://instagram.com/anywhereservice" target="_blank" rel="noopener noreferrer" aria-label="Visite nosso perfil no Instagram">
+              <img src="./assets/icons/Social-32-Instagram-Outline_icon-icons.com_66387.svg" alt="" class="header__social-icon" aria-hidden="true" />
             </a>
-            <a href="https://linkedin.com/in/clodoaldo-silva-79303b26" target="_blank" rel="noopener noreferrer">
-              <img src="./assets/icons/Social-35-Linkedin-Outline_icon-icons.com_66384.svg" alt="LinkedIn" class="header__social-icon" />
+            <a href="https://linkedin.com/in/clodoaldo-silva-79303b26" target="_blank" rel="noopener noreferrer" aria-label="Visite nosso perfil no LinkedIn">
+              <img src="./assets/icons/Social-35-Linkedin-Outline_icon-icons.com_66384.svg" alt="" class="header__social-icon" aria-hidden="true" />
             </a>
-          </figure>
+          </nav>
         </div>
       </header>
-      <main>
-        <section class="services">
-          <ul class="services__list">
+
+      <main id="main-content">
+        <section class="services" aria-label="Nossas especialidades">
+          <h2 class="visually-hidden">Especialidades da Anywhere Service</h2>
+          <ul class="services__list" role="list">
             <li class="services__item">BGP</li>
             <li class="services__item">IPv6</li>
             <li class="services__item">DNS</li>
@@ -50,69 +76,70 @@
         </section>
 
         <section class="consulting" aria-label="Consultoria e Serviços">
-          <ul class="consulting__list">
+          <h2 class="visually-hidden">Nossos serviços de consultoria</h2>
+          <ul class="consulting__list" role="list">
             <li>
-              <a href="mailto:clodoaldo@anywhereservice.com.br" class="consulting__card consulting__card--orange" style="text-decoration: none" target="_blank" rel="noopener noreferrer">
-                <figure class="consulting__icon" aria-hidden="true">
-                  <img src="./assets/icons/plus-circle.svg" alt="Solicitar Consultoria" class="consulting__icon-img" />
-                </figure>
+              <a href="mailto:clodoaldo@anywhereservice.com.br" class="consulting__card consulting__card--orange" aria-label="Solicitar consultoria - Enviar email para falar com um especialista">
+                <span class="consulting__icon" aria-hidden="true">
+                  <img src="./assets/icons/plus-circle.svg" alt="" class="consulting__icon-img" />
+                </span>
                 <div class="consulting__info">
-                  <h2 class="consulting__title">Solicitar Consultoria</h2>
+                  <h3 class="consulting__title">Solicitar Consultoria</h3>
                   <p class="consulting__subtitle consulting__subtitle--orange">Fale com um especialista</p>
                 </div>
               </a>
             </li>
             <li>
-              <a href="./assets/documents/portifolio_anywhere.pdf" download="Portfólio Anywhere" class="consulting__card consulting__card--green" style="text-decoration: none; display: flex; align-items: center" target="_blank" rel="noopener noreferrer">
-                <figure class="consulting__icon" aria-hidden="true">
-                  <img src="./assets/icons/file-text.svg" alt="Portfólio" class="consulting__icon-img" />
-                </figure>
+              <a href="./assets/documents/portifolio_anywhere.pdf" download="Portfólio Anywhere Service" class="consulting__card consulting__card--green" aria-label="Baixar portfólio - Casos de sucesso e projetos realizados">
+                <span class="consulting__icon" aria-hidden="true">
+                  <img src="./assets/icons/file-text.svg" alt="" class="consulting__icon-img" />
+                </span>
                 <div class="consulting__info">
-                  <h2 class="consulting__title">Portfólio</h2>
+                  <h3 class="consulting__title">Portfólio</h3>
                   <p class="consulting__subtitle">Casos de sucesso e projetos realizados</p>
                 </div>
               </a>
             </li>
             <li>
-              <a href="https://www.anywhereservice.com.br/#fh5co-features" class="consulting__card consulting__card--green" style="text-decoration: none" target="_blank" rel="noopener noreferrer">
-                <figure class="consulting__icon" aria-hidden="true">
-                  <img src="./assets/icons/settings.svg" alt="Serviços" class="consulting__icon-img" />
-                </figure>
+              <a href="https://www.anywhereservice.com.br/#fh5co-features" class="consulting__card consulting__card--green" aria-label="Serviços - Soluções completas para provedores">
+                <span class="consulting__icon" aria-hidden="true">
+                  <img src="./assets/icons/settings.svg" alt="" class="consulting__icon-img" />
+                </span>
                 <div class="consulting__info">
-                  <h2 class="consulting__title">Serviços</h2>
+                  <h3 class="consulting__title">Serviços</h3>
                   <p class="consulting__subtitle">Soluções completas para provedores</p>
                 </div>
               </a>
             </li>
             <li>
-              <a href="https://www.anywhereservice.com.br/#fh5co-reviews" class="consulting__card consulting__card--green" style="text-decoration: none" target="_blank" rel="noopener noreferrer">
-                <figure class="consulting__icon" aria-hidden="true">
-                  <img src="./assets/icons/users.svg" alt="Clientes" class="consulting__icon-img" />
-                </figure>
+              <a href="https://www.anywhereservice.com.br/#fh5co-reviews" class="consulting__card consulting__card--green" aria-label="Clientes - Quem confia em nossa expertise">
+                <span class="consulting__icon" aria-hidden="true">
+                  <img src="./assets/icons/users.svg" alt="" class="consulting__icon-img" />
+                </span>
                 <div class="consulting__info">
-                  <h2 class="consulting__title">Clientes</h2>
+                  <h3 class="consulting__title">Clientes</h3>
                   <p class="consulting__subtitle">Quem confia em nossa expertise</p>
                 </div>
               </a>
             </li>
             <li>
-              <a href="https://www.anywhereservice.com.br/#fh5co-features" class="consulting__card consulting__card--green" style="text-decoration: none" target="_blank" rel="noopener noreferrer">
-                <figure class="consulting__icon" aria-hidden="true">
-                  <img src="./assets/icons/monitor-2.svg" alt="Soluções Telecom" class="consulting__icon-img" />
-                </figure>
+              <a href="https://www.anywhereservice.com.br/#fh5co-features" class="consulting__card consulting__card--green" aria-label="Soluções Telecom - Redes e sistemas para telecomunicações">
+                <span class="consulting__icon" aria-hidden="true">
+                  <img src="./assets/icons/monitor-2.svg" alt="" class="consulting__icon-img" />
+                </span>
                 <div class="consulting__info">
-                  <h2 class="consulting__title">Soluções Telecom</h2>
+                  <h3 class="consulting__title">Soluções Telecom</h3>
                   <p class="consulting__subtitle">Redes e sistemas para telecomunicações</p>
                 </div>
               </a>
             </li>
             <li>
-              <a href="https://www.anywhereservice.com.br/#fh5co-features" class="consulting__card consulting__card--green" style="text-decoration: none" target="_blank" rel="noopener noreferrer">
-                <figure class="consulting__icon" aria-hidden="true">
-                  <img src="./assets/icons/book.svg" alt="Treinamentos" class="consulting__icon-img" />
-                </figure>
+              <a href="https://www.anywhereservice.com.br/#fh5co-features" class="consulting__card consulting__card--green" aria-label="Treinamentos - Capacitação para equipes técnicas">
+                <span class="consulting__icon" aria-hidden="true">
+                  <img src="./assets/icons/book.svg" alt="" class="consulting__icon-img" />
+                </span>
                 <div class="consulting__info">
-                  <h2 class="consulting__title">Treinamentos</h2>
+                  <h3 class="consulting__title">Treinamentos</h3>
                   <p class="consulting__subtitle">Capacitação para equipes técnicas</p>
                 </div>
               </a>
@@ -120,23 +147,32 @@
           </ul>
         </section>
 
-        <section class="consulting__card consulting__card--contact" style="text-decoration: none">
+        <section class="consulting__card consulting__card--contact" aria-label="Informações de contato">
           <div class="consulting__contact-wrapper">
-            <figure class="consulting__icon" aria-hidden="true">
-              <img src="./assets/icons/phone.svg" alt="Telefone de Atendimento" class="consulting__icon-img" />
-            </figure>
+            <span class="consulting__icon" aria-hidden="true">
+              <img src="./assets/icons/phone.svg" alt="" class="consulting__icon-img" />
+            </span>
             <div class="consulting__info">
-              <h2 class="consulting__title--contact">Atendimento</h2>
-              <p class="consulting__subtitle--contact">+55 (82) 98701-2399</p>
+              <h3 class="consulting__title--contact">Atendimento</h3>
+              <p class="consulting__subtitle--contact">
+                <a href="tel:+5582987012399" class="consulting__phone-link" aria-label="Ligar para +55 82 98701-2399"> +55 (82) 98701-2399 </a>
+              </p>
             </div>
           </div>
-          <button class="consulting__whatsapp-btn"><a href="https://wa.me/5582987012399?text=Olá,+gostaria+de+saber+mais+sobre+seus+serviços." target="_blank" rel="noopener noreferrer">WhatsApp</a></button>
+          <button class="consulting__whatsapp-btn" type="button" onclick="window.open('https://wa.me/5582987012399?text=Olá,+gostaria+de+saber+mais+sobre+seus+serviços.', '_blank')" aria-label="Abrir WhatsApp para contato">WhatsApp</button>
         </section>
       </main>
-      <footer class="footer">
-        <img src="./assets/icons/rss-3.svg" alt="Ícone RSS" />
-        <h2 class="footer__title">Anywhere Service <span class="footer__title-highlight">Consultoria</span></h2>
-        <p class="footer__copyright">&copy; 2025 &bull; Especialista em revitalizar suas operações de <br />telecomunicações</p>
+
+      <footer class="footer" role="contentinfo">
+        <img src="./assets/icons/rss-3.svg" alt="" aria-hidden="true" />
+        <h2 class="footer__title">
+          Anywhere Service
+          <span class="footer__title-highlight">Consultoria</span>
+        </h2>
+        <p class="footer__copyright">
+          &copy; 2025 &bull; Especialista em revitalizar suas operações de
+          <br />telecomunicações
+        </p>
       </footer>
     </div>
   </body>
