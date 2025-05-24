@@ -17,7 +17,7 @@ O projeto consiste em um cartão digital responsivo que serve como ponto de cont
 ## 🗺️ Área de Atendimento
 
 ### **Sede da Empresa:**
-- **União dos Palmares - AL** (CEP: 57800-000)
+- **Maceió - AL** (Capital do Estado)
 
 ### **Estados Atendidos (100% Online):**
 - **Alagoas (AL)** - Sede
@@ -27,9 +27,9 @@ O projeto consiste em um cartão digital responsivo que serve como ponto de cont
 
 ### **Principais Cidades Atendidas:**
 #### Alagoas
-- União dos Palmares ⭐ (Sede)
-- Maceió
+- Maceió ⭐ (Sede - Capital)
 - Arapiraca
+- União dos Palmares
 
 #### Pernambuco  
 - Recife
@@ -158,13 +158,13 @@ O design se adapta aos seguintes breakpoints:
 - Sitemap structure ready
 
 ### **Palavras-chave Alvo:**
-- "consultoria TI união dos palmares"
+- "consultoria TI maceió"
 - "consultoria online nordeste"
-- "provedor internet alagoas"
-- "BGP nordeste"
-- "IPv6 bahia"
-- "telecomunicações sergipe"
-- "atendimento remoto TI"
+- "provedor internet capital alagoas"
+- "BGP maceió"
+- "IPv6 nordeste"
+- "telecomunicações maceió"
+- "atendimento remoto TI nordeste"
 
 ## 🔄 Manutenção
 
@@ -187,7 +187,9 @@ Para atualizar o conteúdo do cartão digital:
 }
 ```
 
-3. **Localização**: Para alterar cidade/coordenadas, atualize o Schema markup (linhas 28-45 do HTML).
+3. **Localização**: Para alterar cidade/coordenadas, atualize o Schema markup com as novas coordenadas:
+   - Maceió, AL: -9.648139, -35.717239
+   - Modifique as linhas 28-45 do HTML.
 
 4. **Área de Atendimento**: Modifique o array `serviceArea` no Schema para adicionar/remover cidades.
 
@@ -196,7 +198,7 @@ Para atualizar o conteúdo do cartão digital:
 - **WhatsApp**: +55 (82) 98701-2399
 - **Email**: clodoaldo@anywhereservice.com.br
 - **Website**: [anywhereservice.com.br](https://www.anywhereservice.com.br)
-- **Sede**: União dos Palmares - AL
+- **Sede**: Maceió - AL (Capital)
 - **Atendimento**: 100% Online - Região Nordeste
 - **Redes Sociais**:
   - [Facebook](https://facebook.com/anywhereservice)
@@ -214,19 +216,19 @@ Para atualizar o conteúdo do cartão digital:
 ## 📈 Resultados SEO Esperados
 
 ### **Curto Prazo (1-3 meses):**
-- Aparição em "consultoria TI União dos Palmares"
+- Dominância em "consultoria TI Maceió"
 - Rich snippets funcionando
-- Posicionamento local em Alagoas
+- Posicionamento forte na capital alagoana
 
 ### **Médio Prazo (3-6 meses):**
+- Autoridade consolidada em Maceió
 - Top 3 em buscas regionais do Nordeste
 - FAQ aparecendo nos resultados
-- Autoridade em termos técnicos + localização
 
 ### **Longo Prazo (6+ meses):**
-- Referência em consultoria TI interior Alagoas
+- Liderança absoluta na capital alagoana
 - Dominância regional Nordeste
-- Ponte entre interior e capitais nordestinas
+- Hub de consultoria online para toda região
 
 ## 📄 Licença
 
