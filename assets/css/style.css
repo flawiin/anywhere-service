@@ -146,7 +146,7 @@ img[width][height] {
   margin-right: 0;
   margin-bottom: 0.625rem;
   position: relative;
-  background-image: url("../img/logo.jpeg");
+  background-image: url("../img/logo.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-color: var(--primary-blue);
