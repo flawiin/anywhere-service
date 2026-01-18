@@ -59,6 +59,18 @@ O projeto consiste em um cartão digital responsivo que serve como ponto de cont
 - **SEO otimizado** para 4 estados do Nordeste
 - **Acessibilidade WCAG** implementada
 
+## ⚙️ Processo de Desenvolvimento e Inovação
+
+Este projeto foi executado sob uma perspectiva de **AI-Augmented Development**, utilizando ferramentas de Inteligência Artificial como assistentes de produtividade e refinamento técnico. 
+
+Como desenvolvedor e curador do código, utilizei a IA para:
+
+* **Otimização de SEO e Metadados:** Implementação assistida de dados estruturados (JSON-LD) para garantir o máximo alcance em motores de busca.
+* **Acessibilidade (WCAG):** Validação e refinamento de atributos ARIA e semântica HTML para assegurar uma experiência inclusiva.
+* **Refatoração e Boas Práticas:** Uso de IA como tutor textual para aprofundamento em propriedades modernas de CSS (como variáveis e Grid) e organização metodológica do código.
+
+A integração dessas ferramentas permitiu uma entrega de alta fidelidade técnica, unindo a agilidade da tecnologia à revisão crítica necessária para um projeto real.
+
 ## ✨ Funcionalidades
 
 - **Design Responsivo**: Adapta-se perfeitamente a diferentes tamanhos de tela, desde smartphones pequenos até desktops.
